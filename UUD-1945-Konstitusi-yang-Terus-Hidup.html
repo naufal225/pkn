@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UUD 1945: Konstitusi yang Terus Hidup</title>
+<meta name="description" content="Presentasi Pendidikan Pancasila Kelompok 5 TI 1C PNJ: Konstitusi, Dinamika, dan Amandemen UUD 1945">
+
+<!-- Fonts: Playfair Display (judul), Pinyon Script (aksen script), Source Serif 4 (isi), Libre Franklin (label) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;600;700&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&display=swap">
+
+<style>
+/* ===========================================
+   THEME TOKENS
+   Ubah warna/font seluruh deck dari sini.
+   =========================================== */
+:root {
+    --navy: #14213D;
+    --navy-2: #1C2E52;
+    --navy-3: #2C4573;
+    --navy-4: #3E5A8C;
+    --gold: #C9A227;
+    --gold-2: #E2C561;
+    --gold-pale: #F3E6B8;
+    --paper: #F7F3E8;
+    --cream: #EFE6CF;
+    --cream-2: #E6DABB;
+    --brick: #B23A48;
+    --ink: #2B2B2B;
+    --grey: #6B7080;
+    --grey-2: #A7A9B0;
+    --line: rgba(20, 33, 61, .16);
+
+    --stage-bg: #0a1122;
+    --slide-bg: var(--paper);
+
+    --f-display: 'Playfair Display', Georgia, serif;
+    --f-script: 'Pinyon Script', cursive;
+    --f-body: 'Source Serif 4', Georgia, serif;
+    --f-ui: 'Libre Franklin', 'Segoe UI', sans-serif;
+
+    --ease: cubic-bezier(.16, 1, .3, 1);
+    --ease-io: cubic-bezier(.65, 0, .35, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===========================================
+   FIXED 16:9 STAGE: MANDATORY BASE STYLES
+   (isi penuh viewport-base.css dari skill frontend-slides)
+   =========================================== */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+.deck-viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    background: var(--stage-bg, #000);
+}
+.deck-stage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    background: var(--slide-bg, #fff);
+}
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    background: var(--slide-bg, #fff);
+}
+.slide.active,
+.slide.visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+}
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+}
+.deck-controls {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+@media print {
+    html,
+    body {
+        width: 1920px;
+        height: auto;
+        overflow: visible;
+        background: #fff;
+    }
+    .deck-viewport {
+        position: static;
+        overflow: visible;
+        background: #fff;
+    }
+    .deck-stage {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none !important;
+        background: none;
+    }
+    .slide {
+        position: relative;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        break-after: page;
+        page-break-after: always;
+    }
+    .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+    }
+    .deck-controls {
+        display: none !important;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* ===========================================
+   BASE TYPOGRAPHY
+   =========================================== */
+body { font-family: var(--f-body); color: var(--ink); -webkit-font-smoothing: antialiased; }
+b, strong { font-weight: 700; color: var(--navy); }
+.k { color: var(--brick); font-weight: 700; }          /* kata kunci merah bata */
+.g { color: var(--gold); }
+em { font-style: italic; }
+.mono-num { font-variant-numeric: lining-nums tabular-nums; }
+
+/* ===========================================
+   SLIDE BACKGROUNDS
+   paper = slide isi (putih tulang + tekstur kertas)
+   dark  = cover / penutup (navy + pilar samar)
+   =========================================== */
+.slide.paper {
+    background:
+        radial-gradient(ellipse 900px 600px at 92% 0%, rgba(201, 162, 39, .10), transparent 70%),
+        radial-gradient(ellipse 800px 500px at 0% 100%, rgba(20, 33, 61, .07), transparent 70%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .15 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+        var(--paper);
+}
+.slide.dark {
+    background:
+        radial-gradient(ellipse 1100px 800px at 80% 40%, rgba(62, 90, 140, .45), transparent 70%),
+        radial-gradient(ellipse 700px 500px at 0% 0%, rgba(201, 162, 39, .10), transparent 70%),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, .025) 0 2px, transparent 2px 96px),
+        var(--navy);
+    color: #fff;
+}
+.slide.dark b, .slide.dark strong { color: var(--gold-2); }
+
+/* Watermark timbangan samar di slide isi */
+.watermark {
+    position: absolute; right: -60px; bottom: -40px; width: 560px; opacity: .045;
+    pointer-events: none;
+}
+
+/* ===========================================
+   SLIDE CHROME (dibuat otomatis oleh JS)
+   band = strip emas + progres, hdr = kelas/kelompok + penanda bagian + nomor
+   =========================================== */
+.band { position: absolute; left: 0; right: 0; top: 0; height: 12px; background: var(--gold-pale); z-index: 3; }
+.band i { position: absolute; left: 0; top: 0; bottom: 0; background: linear-gradient(90deg, var(--gold), var(--gold-2)); transition: width .8s var(--ease); }
+.slide.dark .band { background: rgba(255, 255, 255, .12); }
+
+.hdr {
+    position: absolute; left: 120px; right: 120px; top: 30px; height: 66px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 2px solid var(--line); z-index: 3;
+}
+.hdr-l { display: flex; align-items: center; gap: 14px; font: 700 23px/1 var(--f-display); color: var(--navy); }
+.hdr-l img { width: 44px; height: 44px; object-fit: contain; }
+.pills { display: flex; gap: 10px; }
+.pill {
+    font: 600 16px/1 var(--f-ui); letter-spacing: .14em; text-transform: uppercase;
+    padding: 9px 16px; border-radius: 99px; border: 1.5px solid var(--line); color: var(--grey);
+}
+.pill.on { background: var(--navy); border-color: var(--navy); color: var(--gold-2); }
+.pg { font: 800 26px/1 var(--f-display); color: var(--navy); }
+.pg i { font: 600 18px/1 var(--f-ui); color: var(--grey); font-style: normal; margin-left: 4px; }
+
+.slide.dark .hdr { border-color: rgba(255, 255, 255, .2); }
+.slide.dark .hdr-l, .slide.dark .pg { color: #fff; }
+.slide.dark .pill { border-color: rgba(255, 255, 255, .25); color: rgba(255, 255, 255, .7); }
+.slide.dark .pill.on { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+.slide.dark .hdr-l img { background: #fff; border-radius: 50%; padding: 3px; }
+
+.foot {
+    position: absolute; left: 120px; right: 120px; bottom: 32px; z-index: 3;
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 40px;
+    font: 500 19px/1.35 var(--f-ui); color: var(--grey);
+}
+.foot .src b { font-weight: 700; color: var(--navy-3); }
+.foot .src { max-width: 1320px; }
+.slide.dark .foot { color: rgba(255, 255, 255, .6); }
+.slide.dark .foot .src b { color: var(--gold-2); }
+
+/* Ornamen ala contoh Kelompok 1: tanda + dan lingkaran putus-putus */
+.orn-plus { position: absolute; width: 34px; height: 34px; z-index: 2; pointer-events: none; }
+.orn-plus::before, .orn-plus::after { content: ''; position: absolute; background: var(--navy); border-radius: 2px; }
+.orn-plus::before { left: 15px; top: 0; width: 4px; height: 34px; }
+.orn-plus::after { top: 15px; left: 0; height: 4px; width: 34px; }
+.slide.dark .orn-plus::before, .slide.dark .orn-plus::after { background: #fff; }
+.orn-ring {
+    position: absolute; border: 3px dashed rgba(20, 33, 61, .32); border-radius: 50%;
+    pointer-events: none; z-index: 1;
+}
+.slide.dark .orn-ring { border-color: rgba(255, 255, 255, .35); }
+.slide.visible .orn-ring { animation: spin 60s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===========================================
+   TITLE BLOCK: kata pengantar script + judul serif
+   =========================================== */
+.ttl { position: absolute; left: 120px; top: 112px; z-index: 2; max-width: 1400px; }
+.kick { display: block; font: 400 64px/1 var(--f-script); color: var(--brick); margin-left: 6px; }
+.ttl h2 { font: 800 62px/1.08 var(--f-display); color: var(--navy); margin-top: -20px; letter-spacing: -.5px; }
+.slide.dark .kick { color: var(--gold-2); }
+.slide.dark .ttl h2 { color: #fff; }
+
+.body { position: absolute; left: 120px; right: 120px; top: 270px; bottom: 100px; z-index: 2; }
+
+/* ===========================================
+   REVEAL ANIMATIONS
+   .r = fade naik, .r-l = dari kiri, .r-s = skala, --d = delay (detik)
+   =========================================== */
+.r, .r-l, .r-s {
+    opacity: 0;
+    transition: opacity .8s var(--ease), transform .9s var(--ease), filter .8s var(--ease);
+    transition-delay: calc(var(--d, 0) * 1s + .12s);
+}
+.r { transform: translateY(28px); }
+.r-l { transform: translateX(-44px); }
+.r-s { transform: scale(.92); filter: blur(4px); }
+.slide.visible .r, .slide.visible .r-l, .slide.visible .r-s { opacity: 1; transform: none; filter: none; }
+.slide:not(.visible) .r, .slide:not(.visible) .r-l, .slide:not(.visible) .r-s { transition: none; }
+
+/* Langkah (muncul satu per satu dengan tombol →) */
+.step { opacity: .0; transform: translateY(14px); transition: opacity .55s var(--ease), transform .55s var(--ease); }
+.step.on { opacity: 1; transform: none; }
+
+/* Gambar garis SVG (stroke draw). Pakai pathLength="1" di path */
+.draw { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.slide.visible .draw { animation: draw 1.6s var(--ease-io) both; animation-delay: calc(var(--d, 0) * 1s + .2s); }
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+/* ===========================================
+   ILUSTRASI HUKUM (SVG dari <template>, diisi JS)
+   =========================================== */
+.illus svg { width: 100%; height: auto; display: block; overflow: visible; max-height: none; }
+
+/* --- Timbangan: lengan bergoyang lalu seimbang --- */
+.sc-beam { transform-box: view-box; transform-origin: 200px 96px; }
+.sc-pan-l { transform-box: view-box; transform-origin: 60px 96px; }
+.sc-pan-r { transform-box: view-box; transform-origin: 340px 96px; }
+.slide.visible .sc-beam { animation: beam 3.4s cubic-bezier(.36, .07, .19, .97) .5s both, beamIdle 7s ease-in-out 3.9s infinite; }
+.slide.visible .sc-pan { animation: pan 3.4s cubic-bezier(.36, .07, .19, .97) .5s both, panIdle 7s ease-in-out 3.9s infinite; }
+@keyframes beam { 0% { transform: rotate(-16deg); } 25% { transform: rotate(11deg); } 45% { transform: rotate(-7deg); } 64% { transform: rotate(4deg); } 82% { transform: rotate(-1.5deg); } 100% { transform: rotate(0); } }
+@keyframes pan { 0% { transform: rotate(16deg); } 25% { transform: rotate(-11deg); } 45% { transform: rotate(7deg); } 64% { transform: rotate(-4deg); } 82% { transform: rotate(1.5deg); } 100% { transform: rotate(0); } }
+@keyframes beamIdle { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(2.4deg); } }
+@keyframes panIdle { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-2.4deg); } }
+
+/* --- Palu hakim: mengetuk + gelombang suara --- */
+.gv-arm { transform-box: view-box; transform-origin: 0 0; }
+.gv-ring { transform-box: fill-box; transform-origin: center; opacity: 0; }
+.slide.visible .gavel-auto .gv-arm,
+.slide.steps-done .gavel-step .gv-arm { animation: strike 4.6s var(--ease-io) .4s infinite both; }
+.slide.visible .gavel-auto .gv-ring,
+.slide.steps-done .gavel-step .gv-ring { animation: ring 4.6s ease-out .4s infinite both; }
+.slide.visible .gavel-auto .gv-ring2,
+.slide.steps-done .gavel-step .gv-ring2 { animation-delay: .55s; }
+@keyframes strike {
+    0% { transform: rotate(-36deg); } 30% { transform: rotate(-36deg); }
+    40% { transform: rotate(1.5deg); } 46% { transform: rotate(-7deg); } 53% { transform: rotate(0); }
+    85% { transform: rotate(0); } 100% { transform: rotate(-36deg); }
+}
+@keyframes ring { 0%, 39% { opacity: 0; transform: scale(.4); } 41% { opacity: 1; } 62% { opacity: 0; transform: scale(1.7); } 100% { opacity: 0; transform: scale(1.7); } }
+.gavel-step .gv-arm { transform: rotate(-36deg); }
+.slide.steps-done .gavel-step .gv-arm { transform: none; }
+
+/* --- Gedung berpilar: kolom naik satu per satu --- */
+.pl-col { transform-box: fill-box; transform-origin: 50% 100%; }
+.slide.visible .pl-col { animation: rise 1.1s var(--ease) both; animation-delay: calc(var(--i) * .12s + .3s); }
+.pl-roof { transform-box: fill-box; transform-origin: 50% 100%; }
+.slide.visible .pl-roof { animation: drop 1s var(--ease) 1.0s both; }
+@keyframes rise { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes drop { from { transform: translateY(-60px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* --- Gulungan naskah: membuka ke bawah, garis teks tergambar --- */
+.nk-paper { transform-box: view-box; transform-origin: 150px 40px; }
+.slide.visible .nk-paper { animation: unrollPaper 1.5s var(--ease-io) .3s both; }
+.slide.visible .nk-roll-bot { animation: unrollRoll 1.5s var(--ease-io) .3s both; }
+@keyframes unrollPaper { from { transform: scaleY(.02); } to { transform: scaleY(1); } }
+@keyframes unrollRoll { from { transform: translateY(-282px); } to { transform: none; } }
+.nk-line { stroke-dasharray: 1; }
+.slide.visible .nk-line { animation: draw .7s ease both; animation-delay: calc(var(--i) * .12s + 1.6s); }
+
+/* --- Gembok: kait turun & mengunci --- */
+.slide.visible .lk-sh { animation: lockDown .9s cubic-bezier(.5, 1.8, .5, .8) 1s both; }
+.slide.visible .lk-body { animation: lockShake .5s ease 1.75s both; transform-box: fill-box; transform-origin: center; }
+@keyframes lockDown { from { transform: translateY(-22px); } to { transform: none; } }
+@keyframes lockShake { 0%, 100% { transform: none; } 30% { transform: rotate(-4deg); } 60% { transform: rotate(3deg); } }
+
+/* --- Peta RIS (terpecah) vs NKRI (utuh) --- */
+.map-ris .isle { animation: none; }
+.slide.visible .map-ris .isle { animation: drift 1.4s var(--ease) both; animation-delay: calc(var(--i) * .1s + .4s); }
+@keyframes drift { from { transform: translate(var(--dx, 0), var(--dy, 0)); opacity: 0; } to { transform: none; opacity: 1; } }
+.slide.visible .map-nkri .isle { animation: fuse 1.2s var(--ease) both; animation-delay: calc(var(--i) * .08s + .6s); }
+@keyframes fuse { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
+.map-nkri .isle, .map-ris .isle { transform-box: fill-box; transform-origin: center; }
+
+/* ===========================================
+   ICONS (sprite <symbol>, outline seragam)
+   =========================================== */
+.ic { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.ic-badge {
+    width: 72px; height: 72px; border-radius: 50%; flex: none;
+    display: grid; place-items: center; padding: 16px;
+    background: var(--navy); color: var(--gold-2);
+    box-shadow: 0 0 0 5px var(--paper), 0 0 0 6.5px rgba(201, 162, 39, .55);
+}
+.ic-badge.gold { background: var(--gold); color: var(--navy); }
+.ic-badge.brick { background: var(--brick); color: #fff; }
+.slide.dark .ic-badge { box-shadow: 0 0 0 5px var(--navy), 0 0 0 6.5px rgba(226, 197, 97, .6); }
+
+/* ===========================================
+   SHARED COMPONENTS
+   =========================================== */
+/* Kartu putih bernomor */
+.card {
+    position: relative; background: #FFFDF7; border: 1.5px solid rgba(201, 162, 39, .45);
+    border-radius: 22px; padding: 26px 30px; box-shadow: 0 14px 30px -18px rgba(20, 33, 61, .35);
+}
+.card .num { font: 800 50px/1 var(--f-display); color: var(--gold); }
+.card h3 { font: 700 30px/1.2 var(--f-display); color: var(--navy); }
+.card h3 + p { margin-top: 8px; }
+.card p { font-size: 25px; line-height: 1.42; color: var(--ink); }
+
+/* Kartu navy (gaya contoh Kelompok 1) */
+.ncard { background: var(--navy); color: #fff; border-radius: 26px; padding: 30px 34px; }
+.ncard b { color: var(--gold-2); }
+
+/* Daftar poin dengan penanda belah ketupat emas */
+.pts { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+.pts li { position: relative; padding-left: 40px; font-size: 28px; line-height: 1.42; }
+.pts li::before {
+    content: ''; position: absolute; left: 4px; top: 14px; width: 14px; height: 14px;
+    background: var(--gold); transform: rotate(45deg);
+}
+.pts.sm li { font-size: 27px; }
+.sub { list-style: none; margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+.sub li { padding-left: 46px; font-size: 25px; }
+.sub li::before { display: none; }
+.sub li .n { position: absolute; left: 6px; top: 2px; width: 30px; height: 30px; border-radius: 50%; background: var(--brick); color: #fff; font: 700 17px/30px var(--f-ui); text-align: center; }
+
+/* Label kecil kapital */
+.lbl { font: 700 18px/1 var(--f-ui); letter-spacing: .18em; text-transform: uppercase; color: var(--brick); }
+.slide.dark .lbl { color: var(--gold-2); }
+
+/* Tabel belajar */
+.tbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 26px; line-height: 1.35; }
+.tbl th {
+    background: var(--navy); color: #fff; text-align: left; font: 700 19px/1 var(--f-ui);
+    letter-spacing: .12em; text-transform: uppercase; padding: 18px 22px;
+}
+.tbl th:first-child { border-radius: 16px 0 0 0; }
+.tbl th:last-child { border-radius: 0 16px 0 0; }
+.tbl td { padding: 14px 22px; border-bottom: 1.5px solid rgba(20, 33, 61, .1); vertical-align: middle; }
+.tbl tbody tr:nth-child(odd) td { background: rgba(255, 253, 247, .9); }
+.tbl tbody tr:nth-child(even) td { background: var(--cream); }
+.tbl tbody tr:last-child td:first-child { border-radius: 0 0 0 16px; }
+.tbl tbody tr:last-child td:last-child { border-radius: 0 0 16px 0; }
+
+/* Foto bersejarah: hitam-putih + duotone navy */
+.photo { position: relative; overflow: hidden; background: var(--navy); }
+.photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.12) brightness(1.08); display: block; max-width: none; max-height: none; }
+.photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 33, 61, .25), rgba(20, 33, 61, .62)); mix-blend-mode: multiply; }
+.photo::before { content: ''; position: absolute; inset: 0; z-index: 1; background: rgba(62, 90, 140, .22); mix-blend-mode: color; }
+.photo .fallback { display: none; position: absolute; inset: 0; z-index: 2; padding: 40px; }
+.photo.missing img { display: none; }
+.photo.missing .fallback { display: grid; place-items: center; }
+.slide.visible .photo img { animation: kenburns 14s ease-out both; }
+@keyframes kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
+.cap { font: 500 19px/1.35 var(--f-ui); color: var(--grey); margin-top: 12px; }
+.cap b { color: var(--navy); }
+
+/* Bingkai melengkung seperti jendela gedung pengadilan */
+.arch { border-radius: 999px 999px 26px 26px; }
+.frame-gold { box-shadow: 0 0 0 3px var(--paper), 0 0 0 5px var(--gold); }
+
+/* ===========================================
+   SLIDE 1: COVER
+   =========================================== */
+.cv-top { position: absolute; left: 120px; top: 64px; display: flex; align-items: center; gap: 22px; }
+.logo-badge { width: 92px; height: 92px; border-radius: 50%; background: #fff; display: grid; place-items: center; padding: 10px; box-shadow: 0 0 0 4px rgba(201, 162, 39, .7); }
+.logo-badge img { width: 100%; height: 100%; object-fit: contain; }
+.cv-top b { display: block; font: 700 30px/1.2 var(--f-display); color: #fff; }
+.cv-top span { font: 500 21px/1.4 var(--f-ui); color: rgba(255, 255, 255, .72); letter-spacing: .04em; }
+.cv-left { position: absolute; left: 120px; top: 222px; width: 960px; }
+.cv-script { font: 400 58px/1.1 var(--f-script); color: var(--gold-2); }
+.cv-title { font: 800 112px/1.0 var(--f-display); color: #fff; margin-top: 14px; letter-spacing: -1px; }
+.cv-title em { color: var(--gold); font-weight: 700; }
+.cv-sub { font: 600 32px/1.3 var(--f-ui); color: var(--gold-2); margin-top: 30px; letter-spacing: .01em; }
+.cv-caps { display: flex; gap: 16px; margin-top: 34px; }
+.cv-caps span { font: 600 24px/1 var(--f-ui); padding: 18px 30px; border-radius: 99px; background: rgba(255, 255, 255, .08); border: 1.5px solid rgba(226, 197, 97, .5); color: #fff; }
+.cv-divider { position: absolute; left: 1108px; top: 150px; width: 2px; height: 700px; background: linear-gradient(180deg, transparent, var(--gold) 15%, var(--gold) 85%, transparent); }
+.cv-arch {
+    position: absolute; left: 1196px; top: 128px; width: 604px; height: 724px;
+    border: 2px solid rgba(226, 197, 97, .7); overflow: hidden;
+    background: radial-gradient(ellipse at 50% 30%, rgba(62, 90, 140, .9), rgba(20, 33, 61, .95) 70%);
+}
+.cv-arch-outline { position: absolute; left: 1172px; top: 104px; width: 652px; height: 772px; border: 2px dashed rgba(226, 197, 97, .35); }
+.cv-arch .bld { position: absolute; left: 40px; right: 40px; bottom: 56px; opacity: .2; }
+.cv-arch .scl { position: absolute; left: 102px; top: 70px; width: 400px; }
+.cv-arch .tag { position: absolute; left: 0; right: 0; bottom: 22px; text-align: center; font: 700 19px/1 var(--f-ui); letter-spacing: .3em; color: var(--gold-2); }
+.cv-names { position: absolute; left: 120px; right: 120px; top: 908px; border-top: 2px solid rgba(255, 255, 255, .3); padding-top: 28px; display: flex; justify-content: space-between; }
+.cv-names span { font: 700 30px/1 var(--f-display); color: #fff; }
+.cv-names small { display: block; font: 500 19px/1 var(--f-ui); color: rgba(255, 255, 255, .6); margin-top: 10px; }
+.xs { position: absolute; display: flex; gap: 22px; font: 300 40px/1 var(--f-ui); color: rgba(255, 255, 255, .85); }
+
+/* ===========================================
+   SLIDE 2: PETA MATERI
+   =========================================== */
+.cap-box { display: flex; align-items: center; gap: 34px; padding: 30px 40px; }
+.cap-box .lbl { color: var(--gold-2); margin-bottom: 12px; }
+.cap-box p { font-size: 32px; line-height: 1.38; }
+.cap-box .ill { width: 150px; flex: none; }
+.map3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 30px; }
+.map3 .card { padding: 30px 34px 30px; min-height: 420px; }
+.map3 .top { display: flex; justify-content: space-between; align-items: center; }
+.map3 .num { font-size: 96px; }
+.map3 h3 { font-size: 38px; margin-top: 14px; }
+.map3 .desc { font-size: 26px; margin-top: 8px; color: var(--grey); }
+.map3 .q { margin-top: 20px; padding-top: 18px; border-top: 1.5px dashed rgba(201, 162, 39, .6); font: italic 600 26px/1.4 var(--f-body); color: var(--navy); }
+.map3 .sl { display: inline-block; margin-top: 18px; font: 700 17px/1 var(--f-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--brick); }
+
+/* ===========================================
+   SLIDE 3: PENGERTIAN
+   =========================================== */
+.two { display: grid; gap: 60px; }
+.def-box { margin-top: 30px; padding: 22px 30px; border-left: 6px solid var(--gold); background: rgba(201, 162, 39, .1); border-radius: 0 16px 16px 0; font: italic 26px/1.45 var(--f-body); color: var(--navy); }
+.callout { display: flex; gap: 22px; align-items: center; padding: 22px 28px; border: 2px dashed rgba(178, 58, 72, .45); border-radius: 18px; background: rgba(255, 253, 247, .7); font-size: 24px; line-height: 1.42; }
+
+/* ===========================================
+   SLIDE 4: FUNGSI + HIERARKI
+   =========================================== */
+.grid22 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.grid22 .card { min-height: 270px; }
+.fc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.fc-top .ic-badge { width: 62px; height: 62px; padding: 14px; }
+.strip { margin-top: 22px; display: flex; align-items: center; gap: 18px; padding: 18px 28px; border-radius: 16px; background: var(--navy); color: #fff; font-size: 27px; }
+.strip b { color: var(--gold-2); }
+.pyr { display: flex; flex-direction: column; align-items: center; gap: 7px; }
+.pyr h4 { font: 700 26px/1.2 var(--f-display); color: var(--navy); margin-bottom: 10px; text-align: center; }
+.tier {
+    height: 62px; display: flex; align-items: center; justify-content: center; gap: 12px;
+    color: #fff; font: 700 23px/1 var(--f-ui);
+    clip-path: polygon(5% 0, 95% 0, 100% 100%, 0 100%);
+}
+.tier i { font-style: normal; font: 800 22px/1 var(--f-display); color: var(--gold-2); }
+.tier.top { background: linear-gradient(180deg, var(--gold-2), var(--gold)); color: var(--navy); clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%); }
+.tier.top i { color: var(--navy); }
+.slide.visible .tier { animation: tierUp .8s var(--ease) both; animation-delay: calc((7 - var(--i)) * .11s + .35s); }
+@keyframes tierUp { from { opacity: 0; transform: translateY(30px) scaleX(.85); } to { opacity: 1; transform: none; } }
+.pyr .note { margin-top: 12px; font: 600 19px/1.35 var(--f-ui); color: var(--grey); text-align: center; }
+.pyr .note b { color: var(--brick); }
+
+/* ===========================================
+   SLIDE 5: TIMELINE 4 KONSTITUSI
+   =========================================== */
+.blocks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.blk {
+    height: 168px; padding: 22px 34px 0 54px; color: #fff; position: relative;
+    clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 50%, calc(100% - 34px) 100%, 0 100%, 34px 50%);
+}
+.blk:first-child { clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 50%, calc(100% - 34px) 100%, 0 100%); padding-left: 34px; border-radius: 18px 0 0 18px; }
+.blk .yr { font: 800 34px/1 var(--f-display); }
+.blk .nm { font: 700 24px/1.2 var(--f-ui); margin-top: 12px; }
+.blk .du { display: inline-block; margin-top: 10px; font: 600 18px/1 var(--f-ui); padding: 6px 12px; border-radius: 99px; background: rgba(255, 255, 255, .16); }
+.blk.b1 { background: var(--navy); }
+.blk.b2 { background: #6F7480; }
+.blk.b3 { background: #8C909A; }
+.blk.b4 { background: linear-gradient(135deg, var(--gold-2), var(--gold)); color: var(--navy); }
+.blk.b4 .du { background: rgba(20, 33, 61, .14); }
+.slide.visible .blk { animation: blkIn .8s var(--ease) both; animation-delay: calc(var(--i) * .15s + .2s); }
+@keyframes blkIn { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: none; } }
+.tl5 td { font-size: 28px; padding: 21px 22px; }
+.memo { display: flex; align-items: center; gap: 20px; margin-top: 30px; font-size: 27px; }
+.memo .tag { flex: none; font: 700 17px/1 var(--f-ui); letter-spacing: .16em; text-transform: uppercase; padding: 12px 16px; border-radius: 10px; background: var(--brick); color: #fff; }
+
+/* ===========================================
+   SLIDE 6: UUD 1945 AWAL
+   =========================================== */
+.big-date { font: 800 64px/1 var(--f-display); color: var(--brick); }
+.big-date small { display: block; font: 600 21px/1.3 var(--f-ui); color: var(--grey); letter-spacing: .04em; margin-top: 10px; }
+.flow { display: flex; align-items: center; gap: 22px; padding: 20px 34px; border-radius: 20px; background: var(--navy); color: #fff; }
+.flow .lead { font: 400 46px/1 var(--f-script); color: var(--gold-2); margin-right: 8px; }
+.flow .node { display: flex; align-items: center; gap: 14px; font: 700 26px/1.2 var(--f-ui); }
+.flow .node .ic-badge { width: 54px; height: 54px; padding: 12px; box-shadow: none; background: rgba(255, 255, 255, .1); }
+.flow .arr { width: 60px; height: 20px; flex: none; color: var(--gold); fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ===========================================
+   SLIDE 7: RIS vs UUDS
+   =========================================== */
+.cmp { display: grid; grid-template-columns: 290px 1fr 1fr; border-radius: 20px; overflow: hidden; border: 1.5px solid rgba(20, 33, 61, .12); }
+.cmp > div { padding: 19px 24px; font-size: 27px; line-height: 1.38; border-bottom: 1.5px solid rgba(20, 33, 61, .1); display: block; }
+.cmp > .lab { display: flex; align-items: center; }
+.cmp .lab { background: #E4E1D8; font: 700 19px/1.2 var(--f-ui); letter-spacing: .1em; text-transform: uppercase; color: var(--navy-3); }
+.cmp .c1 { background: #FFFDF7; }
+.cmp .c2 { background: var(--cream); }
+.cmp .hd { display: flex; align-items: center; gap: 18px; height: 150px; padding: 16px 24px; }
+.cmp .hd.h1 { background: var(--navy); color: #fff; }
+.cmp .hd.h2 { background: linear-gradient(135deg, var(--gold-2), var(--gold)); color: var(--navy); }
+.cmp .hd h3 { font: 800 32px/1.1 var(--f-display); }
+.cmp .hd small { display: block; font: 600 18px/1.3 var(--f-ui); letter-spacing: .06em; opacity: .85; margin-top: 6px; }
+.cmp .hd .map { width: 200px; height: 80px; flex: none; max-width: none; }
+.cmp .hd .ph { width: 104px; height: 104px; border-radius: 50%; flex: none; box-shadow: 0 0 0 3px var(--gold); margin-left: auto; }
+.cmp .last { border-bottom: none; }
+.chain-flow { margin-top: 26px; display: flex; align-items: center; gap: 14px; flex-wrap: nowrap; font: 600 22px/1.2 var(--f-ui); color: var(--navy); }
+.chain-flow span { padding: 12px 18px; border-radius: 12px; background: #fff; border: 1.5px solid rgba(201, 162, 39, .5); white-space: nowrap; }
+.chain-flow span.k { background: var(--brick); color: #fff; border-color: var(--brick); }
+.chain-flow i { font-style: normal; color: var(--gold); font-weight: 800; }
+
+/* ===========================================
+   SLIDE 8: DEKRIT
+   =========================================== */
+.vtl { position: relative; height: 100%; padding-left: 10px; }
+.vtl::before { content: ''; position: absolute; left: 44px; top: 40px; bottom: 60px; width: 4px; background: linear-gradient(var(--navy), var(--navy-4)); border-radius: 2px; }
+.vtl .ev { position: relative; display: flex; gap: 26px; align-items: flex-start; margin-bottom: 52px; }
+.vtl .dot { flex: none; width: 72px; height: 72px; border-radius: 50%; background: var(--navy); border: 6px solid var(--paper); box-shadow: 0 0 0 3px var(--navy); display: grid; place-items: center; color: var(--gold-2); font: 800 20px/1 var(--f-display); }
+.vtl .ev.hot .dot { background: var(--brick); box-shadow: 0 0 0 3px var(--brick), 0 0 0 12px rgba(178, 58, 72, .18); color: #fff; }
+.slide.visible .vtl .ev.hot .dot { animation: pulse 2.4s ease-in-out 1.2s infinite; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 3px var(--brick), 0 0 0 10px rgba(178, 58, 72, .18); } 50% { box-shadow: 0 0 0 3px var(--brick), 0 0 0 22px rgba(178, 58, 72, .0); } }
+.vtl .yr { font: 800 40px/1 var(--f-display); color: var(--navy); }
+.vtl .ev.hot .yr { color: var(--brick); }
+.vtl .tx { font: 600 22px/1.35 var(--f-ui); color: var(--grey); margin-top: 6px; }
+.lockcap { display: flex; align-items: center; gap: 18px; margin-top: 22px; }
+.lockcap .illus { width: 84px; flex: none; }
+.lockcap p { font: 700 22px/1.35 var(--f-ui); color: var(--navy); }
+.lockcap p span { display: block; font: 400 italic 21px/1.35 var(--f-body); color: var(--grey); }
+
+/* ===========================================
+   SLIDE 9: ALASAN
+   =========================================== */
+.why .card { min-height: 238px; padding: 24px 28px; }
+.why .hrow { display: flex; align-items: center; gap: 18px; margin-bottom: 12px; }
+.why .ic-badge { width: 64px; height: 64px; padding: 14px; }
+.why h3 { font-size: 29px; }
+.why p { font-size: 26px; }
+.keep { margin-top: 22px; display: flex; align-items: center; gap: 26px; padding: 18px 30px; background: var(--navy); color: #fff; border-radius: 20px; }
+.keep .illus { width: 78px; flex: none; }
+.keep .lbl { color: var(--gold-2); margin-bottom: 8px; }
+.keep p { font-size: 27px; line-height: 1.35; }
+.keep b { color: var(--gold-2); }
+.keep p span { display: block; font-size: 22px; color: rgba(255, 255, 255, .72); font-style: italic; margin-top: 4px; }
+
+/* ===========================================
+   SLIDE 10: 4 TAHAP
+   =========================================== */
+.bridge { display: flex; align-items: center; justify-content: center; gap: 18px; font: 600 25px/1.2 var(--f-ui); color: var(--navy); padding: 18px 26px; border-radius: 99px; background: rgba(201, 162, 39, .14); border: 1.5px solid rgba(201, 162, 39, .5); }
+.bridge i { font-style: normal; color: var(--brick); font-weight: 800; }
+.htl { position: relative; margin-top: 56px; height: 450px; }
+.htl .rail { position: absolute; left: 90px; right: 90px; top: 146px; height: 6px; }
+.htl .rail svg { width: 100%; height: 6px; display: block; max-width: none; }
+.htl .stg { position: absolute; top: 0; width: 360px; margin-left: -180px; text-align: center; }
+.htl .when { font: 800 46px/1 var(--f-display); color: var(--navy); height: 74px; display: flex; align-items: flex-end; justify-content: center; }
+.htl .when small { font: 700 22px/1 var(--f-ui); color: var(--grey); margin-right: 10px; margin-bottom: 8px; letter-spacing: .08em; text-transform: uppercase; }
+.htl .node { width: 104px; height: 104px; margin: 26px auto 0; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, var(--gold-2), var(--gold)); color: var(--navy); font: 900 40px/1 var(--f-display); box-shadow: 0 0 0 8px var(--paper), 0 12px 24px -10px rgba(20, 33, 61, .5); position: relative; z-index: 2; }
+.htl .stg.end .node { box-shadow: 0 0 0 8px var(--paper), 0 0 0 14px var(--brick), 0 12px 24px -10px rgba(20, 33, 61, .5); }
+.htl .theme { font: 800 32px/1.1 var(--f-display); color: var(--brick); margin-top: 26px; }
+.htl .desc { font-size: 28px; line-height: 1.4; margin-top: 10px; padding: 0 8px; }
+.slide.visible .htl .node { animation: pop .7s cubic-bezier(.34, 1.56, .64, 1) both; animation-delay: calc(var(--i) * .35s + .5s); }
+@keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
+.khlp { display: flex; align-items: center; gap: 22px; justify-content: center; font-size: 26px; }
+.khlp .lt { display: inline-grid; place-items: center; width: 54px; height: 54px; border-radius: 12px; background: var(--navy); color: var(--gold-2); font: 800 30px/1 var(--f-display); margin-right: 6px; }
+
+/* ===========================================
+   SLIDE 11: TABEL AMANDEMEN
+   =========================================== */
+.amd td { font-size: 28.5px; padding: 24px 22px; line-height: 1.4; }
+.amd .rom { font: 900 66px/1 var(--f-display); color: var(--gold); text-align: center; }
+.amd .when { font: 700 25px/1.25 var(--f-ui); color: var(--navy); white-space: nowrap; }
+.amd .when small { display: block; font: 600 18px/1.3 var(--f-ui); color: var(--grey); margin-top: 6px; letter-spacing: .06em; text-transform: uppercase; }
+.amd b { color: var(--brick); }
+.gavel11 { position: absolute; right: 150px; top: 92px; width: 230px; z-index: 4; }
+.fn { margin-top: 26px; display: flex; gap: 16px; align-items: center; font-size: 26px; line-height: 1.4; color: var(--ink); }
+.fn .tag { flex: none; font: 700 16px/1 var(--f-ui); letter-spacing: .16em; text-transform: uppercase; padding: 10px 14px; border-radius: 10px; background: var(--gold); color: var(--navy); }
+
+/* ===========================================
+   SLIDE 12: SEBELUM vs SESUDAH
+   =========================================== */
+.ba { display: grid; grid-template-columns: 600px 150px 1fr; gap: 20px; height: 240px; }
+.ba .pane { border-radius: 20px; padding: 16px 20px; position: relative; }
+.ba .pane.before { background: #ECE8DE; }
+.ba .pane.after { background: rgba(201, 162, 39, .14); border: 1.5px solid rgba(201, 162, 39, .45); }
+.ba .ptitle { font: 700 18px/1 var(--f-ui); letter-spacing: .18em; text-transform: uppercase; color: var(--grey); margin-bottom: 12px; display: flex; justify-content: space-between; }
+.ba .ptitle b { color: var(--navy); }
+.box { display: grid; place-items: center; height: 52px; border-radius: 10px; background: var(--navy); color: #fff; font: 700 20px/1 var(--f-ui); position: relative; }
+.box.new { background: linear-gradient(135deg, var(--gold-2), var(--gold)); color: var(--navy); }
+.box.gone { background: #B9B6AD; color: #5B5B5B; }
+.box.gone::after { content: ''; position: absolute; left: 10%; right: 10%; top: 50%; height: 3px; background: var(--brick); transform: rotate(-12deg); }
+.box.mpr { width: 220px; height: 56px; margin: 0 auto; background: var(--navy); box-shadow: 0 0 0 3px var(--gold); font-size: 22px; }
+.box.mpr small { font: 600 14px/1 var(--f-ui); color: var(--gold-2); letter-spacing: .1em; }
+.tree-lines { height: 40px; width: 100%; display: block; }
+.row5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.row8 { display: grid; grid-template-columns: repeat(8, 1fr); gap: 9px; margin-top: 30px; }
+.row8 .box { height: 64px; }
+.level { margin-top: 14px; height: 3px; background: var(--navy); border-radius: 2px; position: relative; }
+.level span { position: absolute; left: 50%; top: 12px; transform: translateX(-50%); white-space: nowrap; font: 600 19px/1 var(--f-ui); color: var(--navy); }
+.legend { display: flex; gap: 22px; font: 600 18px/1 var(--f-ui); color: var(--grey); }
+.legend i { display: inline-block; width: 18px; height: 18px; border-radius: 5px; vertical-align: -3px; margin-right: 6px; }
+.ba-tbl td { font-size: 24px; padding: 11px 22px; }
+.ba-tbl td:first-child { font: 700 21px/1.25 var(--f-ui); color: var(--navy-3); width: 330px; }
+.ba-tbl tbody td:last-child { background: #F6EBC9 !important; font-weight: 600; color: var(--navy); }
+.ba-tbl th:last-child { background: var(--gold); color: var(--navy); }
+
+/* ===========================================
+   SLIDE 13: PENERAPAN + PASAL 37
+   =========================================== */
+.apply { display: flex; flex-direction: column; gap: 20px; }
+.apply .it { display: flex; gap: 22px; align-items: center; }
+.apply .ic-badge { width: 66px; height: 66px; padding: 15px; }
+.apply p { font-size: 27px; line-height: 1.4; }
+.case { margin-top: 26px; padding: 18px 24px; border-radius: 18px; border: 2px solid var(--navy); background: #FFFDF7; position: relative; }
+.case .lbl { margin-bottom: 10px; color: var(--navy); }
+.case .lbl em { color: var(--brick); font-style: normal; }
+.case .path { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 14px; align-items: start; font-size: 22px; line-height: 1.32; }
+.case .path i { font-style: normal; color: var(--gold); font: 800 28px/1 var(--f-ui); margin-top: 30px; }
+.case .path b { display: block; font: 700 16px/1 var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--brick); margin-bottom: 6px; }
+.p37 { display: flex; flex-direction: column; align-items: stretch; }
+.p37 h4 { font: 800 30px/1.2 var(--f-display); color: var(--navy); margin-bottom: 16px; }
+.p37 h4 span { font: 400 46px/1 var(--f-script); color: var(--brick); margin-right: 8px; }
+.stp { display: flex; align-items: center; gap: 20px; padding: 20px 22px; border-radius: 16px; background: var(--navy); color: #fff; }
+.stp .fr { flex: none; width: 104px; text-align: center; font: 900 36px/1 var(--f-display); color: var(--gold-2); }
+.stp p { font-size: 25px; line-height: 1.35; }
+.stp p small { display: block; font: 600 16px/1 var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .6); margin-bottom: 6px; }
+.stp.lock { background: var(--brick); }
+.stp.lock .illus { width: 104px; padding: 0 22px; }
+.down { height: 34px; display: grid; place-items: center; color: var(--gold); }
+.down svg { width: 26px; height: 24px; flex: none; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ===========================================
+   SLIDE 14: ISU TERKINI
+   =========================================== */
+.now { font: 800 84px/1 var(--f-display); color: var(--brick); }
+.now small { font: 700 20px/1 var(--f-ui); color: var(--grey); letter-spacing: .18em; text-transform: uppercase; display: block; margin-bottom: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+.chips span { font: 600 22px/1 var(--f-ui); padding: 12px 18px; border-radius: 99px; background: var(--navy); color: #fff; }
+.views { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 12px; }
+.views div { padding: 18px 20px; border-radius: 14px; background: #FFFDF7; border: 1.5px solid rgba(201, 162, 39, .5); font: 600 24px/1.3 var(--f-ui); color: var(--navy); }
+.views div i { display: block; font: 800 30px/1 var(--f-display); color: var(--gold); font-style: normal; margin-bottom: 8px; }
+.disc { position: relative; height: 100%; border: 3px dotted var(--gold); border-radius: 26px; padding: 36px 40px; background: rgba(201, 162, 39, .09); overflow: hidden; }
+.disc .qm { position: absolute; right: -10px; bottom: -120px; font: 900 520px/1 var(--f-display); color: var(--gold); opacity: .15; pointer-events: none; }
+.disc h3 { font: 400 76px/1 var(--f-script); color: var(--brick); }
+.disc ol { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 22px; position: relative; }
+.disc li { display: flex; gap: 18px; font-size: 30px; line-height: 1.4; color: var(--navy); }
+.disc li i { flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--navy); color: var(--gold-2); font: 800 24px/1 var(--f-display); font-style: normal; }
+
+/* ===========================================
+   SLIDE 15: KESIMPULAN (dark)
+   =========================================== */
+.concl { display: flex; flex-direction: column; gap: 44px; width: 1100px; }
+.concl .it { display: flex; gap: 28px; align-items: center; }
+.concl .n { flex: none; font: 900 76px/1 var(--f-display); color: var(--gold); width: 64px; text-align: center; }
+.concl .ic-badge { width: 70px; height: 70px; padding: 16px; background: rgba(255, 255, 255, .08); }
+.concl p { font-size: 31px; line-height: 1.42; color: rgba(255, 255, 255, .92); }
+.thanks { position: absolute; left: 120px; right: 120px; top: 868px; padding-top: 22px; border-top: 2px solid var(--gold); display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+.thanks h3 { font: 700 italic 58px/1 var(--f-display); color: #fff; }
+.thanks h3 span { color: var(--gold-2); }
+.thanks .who { display: flex; align-items: center; gap: 16px; font: 600 21px/1.35 var(--f-ui); color: rgba(255, 255, 255, .75); text-align: right; }
+.thanks .who img { width: 60px; height: 60px; background: #fff; border-radius: 50%; padding: 5px; }
+
+/* ===========================================
+   SLIDE 17: SEKIAN & TERIMA KASIH (dark)
+   =========================================== */
+.end-arch {
+    position: absolute; left: 50%; top: 150px; width: 820px; height: 820px; margin-left: -410px;
+    border: 2px solid rgba(226, 197, 97, .45);
+    background: radial-gradient(ellipse at 50% 35%, rgba(62, 90, 140, .75), rgba(20, 33, 61, .2) 70%);
+}
+.end-arch .bld { position: absolute; left: 90px; right: 90px; bottom: 40px; opacity: .12; }
+.end-text { position: absolute; left: 0; right: 0; top: 250px; text-align: center; z-index: 2; }
+.end-script { font: 400 120px/1 var(--f-script); color: var(--gold-2); }
+.end-title { font: 800 168px/1 var(--f-display); color: #fff; letter-spacing: -2px; margin-top: -6px; text-shadow: 0 10px 40px rgba(0, 0, 0, .35); }
+.end-rule { display: flex; align-items: center; justify-content: center; gap: 22px; margin: 34px auto 0; }
+.end-rule span { width: 220px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold)); }
+.end-rule span:last-child { background: linear-gradient(90deg, var(--gold), transparent); }
+.end-rule i { font-style: normal; color: var(--gold); font-size: 30px; }
+.end-q { font: 700 italic 64px/1.2 var(--f-display); color: var(--gold-2); margin-top: 30px; }
+.end-group { font: 400 76px/1 var(--f-script); color: #fff; margin-top: 40px; }
+.end-scales { position: absolute; left: 150px; bottom: 120px; width: 300px; opacity: .9; }
+.end-gavel { position: absolute; right: 150px; bottom: 130px; width: 340px; }
+
+/* ===========================================
+   SLIDE 16: REFERENSI
+   =========================================== */
+.refs { columns: 2; column-gap: 60px; list-style: none; counter-reset: r; }
+.refs li { break-inside: avoid; position: relative; padding-left: 54px; margin-bottom: 15px; font-size: 21px; line-height: 1.35; counter-increment: r; }
+.refs li::before { content: counter(r, decimal-leading-zero); position: absolute; left: 0; top: 2px; font: 800 22px/1 var(--f-display); color: var(--gold); }
+.refs li b { font-weight: 700; color: var(--navy); }
+.refs li a { display: block; font: 500 17.5px/1.3 var(--f-ui); color: var(--navy-4); text-decoration: none; margin-top: 3px; }
+.refs li.todo { background: rgba(178, 58, 72, .08); border-radius: 10px; padding: 10px 12px 10px 54px; }
+.refs li.todo::before { top: 12px; }
+
+/* ===========================================
+   SLIDE 17: LATIHAN SOAL
+   =========================================== */
+.quiz { display: flex; flex-direction: column; gap: 18px; }
+.qz { display: flex; gap: 20px; align-items: center; padding: 16px 22px; border-radius: 18px; background: #FFFDF7; border: 1.5px solid rgba(20, 33, 61, .12); cursor: pointer; transition: border-color .25s, background .25s, transform .25s; }
+.qz:hover { border-color: var(--gold); transform: translateX(6px); }
+.qz.sel { border-color: var(--navy); background: #fff; box-shadow: 0 10px 24px -16px rgba(20, 33, 61, .6); }
+.qz .qn { flex: none; width: 54px; height: 54px; border-radius: 50%; background: var(--navy); color: var(--gold-2); display: grid; place-items: center; font: 800 26px/1 var(--f-display); }
+.qz p { font-size: 26px; line-height: 1.38; flex: 1; }
+.qz .go { flex: none; font: 700 17px/1 var(--f-ui); letter-spacing: .1em; text-transform: uppercase; padding: 10px 14px; border-radius: 10px; background: var(--gold); color: var(--navy); border: none; cursor: pointer; }
+.qz .go:hover { background: var(--navy); color: var(--gold-2); }
+.qz .ans { display: none; }
+.anspanel { height: 100%; border-radius: 26px; padding: 34px 38px; color: #fff; background: radial-gradient(ellipse at 100% 0%, rgba(62, 90, 140, .7), transparent 60%), var(--navy); position: relative; overflow: hidden; }
+.anspanel .illus { position: absolute; right: -40px; bottom: -30px; width: 300px; opacity: .14; }
+.anspanel h3 { font: 400 60px/1 var(--f-script); color: var(--gold-2); }
+.anspanel .hint { font: italic 24px/1.45 var(--f-body); color: rgba(255, 255, 255, .7); margin-top: 18px; }
+.anspanel .abody { margin-top: 18px; font-size: 25px; line-height: 1.45; position: relative; }
+.anspanel .abody b { color: var(--gold-2); }
+.anspanel .abody ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.anspanel .abody li { padding-left: 26px; position: relative; }
+.anspanel .abody li::before { content: ''; position: absolute; left: 2px; top: 13px; width: 10px; height: 10px; background: var(--gold); transform: rotate(45deg); }
+.anspanel .qref { font: 700 17px/1 var(--f-ui); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-top: 14px; }
+
+/* ===========================================
+   DECK UI (di luar stage): kontrol, overview, catatan, edit
+   =========================================== */
+.deck-controls { display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 99px; background: rgba(10, 17, 34, .82); backdrop-filter: blur(8px); box-shadow: 0 10px 30px rgba(0, 0, 0, .35); transition: opacity .4s; font-family: var(--f-ui); }
+.deck-controls.idle { opacity: 0; }
+.deck-controls:hover { opacity: 1; }
+.deck-controls button { width: 40px; height: 40px; border-radius: 50%; border: none; background: transparent; color: #fff; cursor: pointer; display: grid; place-items: center; font: 600 15px/1 var(--f-ui); }
+.deck-controls button:hover { background: rgba(255, 255, 255, .12); color: var(--gold-2); }
+.deck-controls button svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.deck-controls .cnt { color: #fff; font: 600 15px/1 var(--f-ui); min-width: 70px; text-align: center; letter-spacing: .06em; }
+.deck-controls .sep { width: 1px; height: 22px; background: rgba(255, 255, 255, .2); margin: 0 4px; }
+
+.overview { position: fixed; inset: 0; z-index: 2000; background: rgba(10, 17, 34, .94); display: none; padding: 50px 60px; overflow: auto; font-family: var(--f-ui); }
+.overview.open { display: block; }
+.overview h2 { font: 800 34px/1 var(--f-display); color: #fff; margin-bottom: 26px; }
+.overview h2 span { font: 400 40px/1 var(--f-script); color: var(--gold-2); margin-right: 10px; }
+.ov-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+.ov-item { text-align: left; padding: 18px 20px; border-radius: 14px; border: 1.5px solid rgba(255, 255, 255, .14); background: rgba(255, 255, 255, .04); color: #fff; cursor: pointer; font: 600 17px/1.35 var(--f-ui); }
+.ov-item i { display: block; font: 800 28px/1 var(--f-display); color: var(--gold); font-style: normal; margin-bottom: 8px; }
+.ov-item:hover, .ov-item.cur { border-color: var(--gold); background: rgba(201, 162, 39, .12); }
+
+.notes-panel { position: fixed; right: 18px; bottom: 84px; width: min(520px, calc(100vw - 36px)); max-height: 46vh; overflow: auto; z-index: 1500; display: none; padding: 20px 24px; border-radius: 16px; background: rgba(247, 243, 232, .97); color: var(--ink); box-shadow: 0 20px 50px rgba(0, 0, 0, .4); font: 16px/1.55 var(--f-body); border-top: 5px solid var(--gold); }
+.notes-panel.open { display: block; }
+.notes-panel h4 { font: 700 13px/1 var(--f-ui); letter-spacing: .18em; text-transform: uppercase; color: var(--brick); margin-bottom: 10px; }
+.slide .notes { display: none; }
+
+.edit-hotzone { position: fixed; top: 0; left: 0; width: 80px; height: 80px; z-index: 10000; cursor: pointer; }
+.edit-toggle { position: fixed; top: 16px; left: 16px; z-index: 10001; width: 46px; height: 46px; border-radius: 50%; border: none; background: var(--gold); color: var(--navy); font-size: 20px; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .3s ease; box-shadow: 0 6px 18px rgba(0, 0, 0, .35); }
+.edit-toggle.show, .edit-toggle.active { opacity: 1; pointer-events: auto; }
+.edit-toggle.active { background: var(--brick); color: #fff; }
+body.editing [contenteditable="true"] { outline: 2px dashed rgba(201, 162, 39, .7); outline-offset: 4px; cursor: text; }
+body.editing [contenteditable="true"]:focus { outline: 2px solid var(--brick); }
+.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10002; padding: 12px 22px; border-radius: 99px; background: var(--navy); color: #fff; font: 600 15px/1 var(--f-ui); opacity: 0; transition: opacity .3s; pointer-events: none; }
+.toast.show { opacity: 1; }
+
+/* Hidden SVG defs container */
+.svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ===========================================
+   PRINT: tampilkan semua (langkah, animasi) dalam keadaan akhir
+   =========================================== */
+@page { size: 1920px 1080px; margin: 0; }
+@media print {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .r, .r-l, .r-s, .step { opacity: 1 !important; transform: none !important; filter: none !important; }
+    .gavel-step .gv-arm { transform: none !important; }
+    .overview, .notes-panel, .edit-hotzone, .edit-toggle, .toast { display: none !important; }
+    .slide { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===========================================
+     SVG DEFS + ICON SPRITE
+     =========================================== -->
+<svg class="svg-defs" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F0D777"/><stop offset=".55" stop-color="#C9A227"/><stop offset="1" stop-color="#A4831A"/>
+    </linearGradient>
+    <linearGradient id="gNavy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2C4573"/><stop offset="1" stop-color="#14213D"/>
+    </linearGradient>
+  </defs>
+  <!-- Ikon: buku terbuka -->
+  <symbol id="i-book" viewBox="0 0 48 48"><path d="M6 11c6-2 12-1 18 3 6-4 12-5 18-3v27c-6-2-12-1-18 3-6-4-12-5-18-3z"/><path d="M24 14v27"/><path d="M11 18h7M11 23h7M30 18h7M30 23h7"/></symbol>
+  <!-- Ikon: jam / timeline -->
+  <symbol id="i-time" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path d="M24 13v11l8 5"/><path d="M7 24H3M45 24h-4M24 3v4"/></symbol>
+  <!-- Ikon: palu hakim -->
+  <symbol id="i-gavel" viewBox="0 0 48 48"><path d="M13 17l10-10 9 9-10 10z"/><path d="M11 15l14-14M30 30l-0 0"/><path d="M27 21l15 15-3 3-15-15"/><path d="M6 43h20"/><path d="M9 39h14"/></symbol>
+  <!-- Ikon: puncak piramida -->
+  <symbol id="i-peak" viewBox="0 0 48 48"><path d="M24 6l19 34H5z"/><path d="M13 26h22M18 17h12"/><circle cx="24" cy="6" r="1.5"/></symbol>
+  <!-- Ikon: rantai putus -->
+  <symbol id="i-chain" viewBox="0 0 48 48"><path d="M19 17h-7a7 7 0 0 0 0 14h7"/><path d="M29 17h7a7 7 0 0 1 0 14h-7"/><path d="M14 24h4M30 24h4"/><path d="M24 8v5M24 35v5M17 10l2 4M31 10l-2 4M17 38l2-4M31 38l-2-4"/></symbol>
+  <!-- Ikon: gulungan naskah -->
+  <symbol id="i-scroll" viewBox="0 0 48 48"><path d="M12 9h26a4 4 0 0 1 0 8H12"/><path d="M12 9a4 4 0 0 0 0 8v22a4 4 0 0 0 4 4h22V17"/><path d="M18 24h14M18 30h14M18 36h9"/></symbol>
+  <!-- Ikon: bendera -->
+  <symbol id="i-flag" viewBox="0 0 48 48"><path d="M11 44V5"/><path d="M11 7h27l-5 7 5 7H11"/><path d="M11 14h22"/></symbol>
+  <!-- Ikon: kaca pembesar di atas pasal -->
+  <symbol id="i-search" viewBox="0 0 48 48"><circle cx="20" cy="20" r="12"/><path d="M29 29l13 13"/><path d="M15 17h10M15 22h7"/></symbol>
+  <!-- Ikon: tangan + perisai (HAM) -->
+  <symbol id="i-shield" viewBox="0 0 48 48"><path d="M24 4l16 6v12c0 10-7 17-16 21C15 39 8 32 8 22V10z"/><path d="M17 23l5 5 9-10"/></symbol>
+  <!-- Ikon: peta dengan titik daerah -->
+  <symbol id="i-map" viewBox="0 0 48 48"><path d="M5 11l12-4 14 4 12-4v30l-12 4-14-4-12 4z"/><path d="M17 7v30M31 11v30"/><circle cx="11" cy="22" r="2"/><circle cx="24" cy="27" r="2"/><circle cx="37" cy="19" r="2"/></symbol>
+  <!-- Ikon: kotak suara -->
+  <symbol id="i-ballot" viewBox="0 0 48 48"><path d="M7 24h34v18H7z"/><path d="M7 24l5-8h24l5 8"/><path d="M17 24h14"/><path d="M19 20V5h10v15"/><path d="M22 10h4"/></symbol>
+  <!-- Ikon: timbangan kecil -->
+  <symbol id="i-scales" viewBox="0 0 48 48"><path d="M24 7v34M14 41h20M8 13h32"/><circle cx="24" cy="7" r="2"/><path d="M8 13L3 26h10zM40 13l-5 13h10z"/><path d="M3 26a5 3 0 0 0 10 0M35 26a5 3 0 0 0 10 0"/></symbol>
+  <!-- Ikon: topi toga + buku -->
+  <symbol id="i-grad" viewBox="0 0 48 48"><path d="M3 18l21-9 21 9-21 9z"/><path d="M11 22v9c4 4 9 5 13 5s9-1 13-5v-9"/><path d="M45 18v12"/></symbol>
+  <!-- Ikon: megafon -->
+  <symbol id="i-mega" viewBox="0 0 48 48"><path d="M6 19v10h7l18 10V9L13 19z"/><path d="M13 29l3 11h6l-2-10"/><path d="M37 17c3 2 3 12 0 14M41 13c6 5 6 17 0 22"/></symbol>
+  <!-- Ikon: gembok -->
+  <symbol id="i-lock" viewBox="0 0 48 48"><rect x="9" y="21" width="30" height="22" rx="4"/><path d="M15 21v-6a9 9 0 0 1 18 0v6"/><circle cx="24" cy="31" r="3"/><path d="M24 34v4"/></symbol>
+  <!-- Ikon: gedung / lembaga -->
+  <symbol id="i-bldg" viewBox="0 0 48 48"><path d="M4 16L24 5l20 11z"/><path d="M8 20v17M17 20v17M31 20v17M40 20v17"/><path d="M4 41h40M6 37h36"/></symbol>
+  <!-- Ikon: tanda seru / darurat -->
+  <symbol id="i-alert" viewBox="0 0 48 48"><path d="M24 5L44 41H4z"/><path d="M24 18v11M24 34v1"/></symbol>
+  <!-- Ikon: mahkota/kuasa -->
+  <symbol id="i-crown" viewBox="0 0 48 48"><path d="M6 36L4 14l11 9 9-14 9 14 11-9-2 22z"/><path d="M6 41h36"/></symbol>
+  <!-- Ikon: orang-orang (komite) -->
+  <symbol id="i-people" viewBox="0 0 48 48"><circle cx="16" cy="16" r="6"/><circle cx="33" cy="17" r="5"/><path d="M4 40c0-8 5-13 12-13s12 5 12 13"/><path d="M28 30c2-2 3-3 6-3 6 0 10 5 10 12"/></symbol>
+  <!-- Panah kanan -->
+  <symbol id="i-arrow" viewBox="0 0 60 20"><path d="M2 10h52M46 3l8 7-8 7"/></symbol>
+  <symbol id="i-down" viewBox="0 0 26 24"><path d="M13 2v18M6 13l7 7 7-7"/></symbol>
+</svg>
+
+<!-- ===========================================
+     ILLUSTRATION TEMPLATES (diklon JS ke [data-illus])
+     =========================================== -->
+<!-- Timbangan keadilan -->
+<template id="t-scales">
+  <svg viewBox="0 0 400 380" aria-hidden="true">
+    <g>
+      <rect x="110" y="346" width="180" height="16" rx="5" fill="url(#gGold)"/>
+      <path d="M148 346 L162 318 H238 L252 346 Z" fill="url(#gGold)"/>
+      <rect x="191" y="98" width="18" height="222" rx="4" fill="url(#gGold)"/>
+      <path d="M197 120 V300 M203 120 V300" stroke="rgba(20,33,61,.28)" stroke-width="1.6"/>
+      <path d="M186 92 h28 l-5 12 h-18z" fill="url(#gGold)"/>
+      <circle cx="200" cy="74" r="15" fill="url(#gGold)"/>
+      <circle cx="200" cy="74" r="6" fill="rgba(20,33,61,.35)"/>
+    </g>
+    <g class="sc-beam">
+      <rect x="54" y="91" width="292" height="10" rx="5" fill="url(#gGold)"/>
+      <circle cx="58" cy="96" r="8" fill="url(#gGold)"/>
+      <circle cx="342" cy="96" r="8" fill="url(#gGold)"/>
+      <g class="sc-pan sc-pan-l">
+        <path d="M60 100 L22 216 M60 100 L98 216" stroke="#E2C561" stroke-width="2.6" fill="none"/>
+        <path d="M12 214 H108 Q102 254 60 254 Q18 254 12 214 Z" fill="url(#gGold)"/>
+        <path d="M12 214 H108" stroke="rgba(20,33,61,.3)" stroke-width="2"/>
+      </g>
+      <g class="sc-pan sc-pan-r">
+        <path d="M340 100 L302 216 M340 100 L378 216" stroke="#E2C561" stroke-width="2.6" fill="none"/>
+        <path d="M292 214 H388 Q382 254 340 254 Q298 254 292 214 Z" fill="url(#gGold)"/>
+        <path d="M292 214 H388" stroke="rgba(20,33,61,.3)" stroke-width="2"/>
+      </g>
+    </g>
+  </svg>
+</template>
+
+<!-- Palu hakim + alas -->
+<template id="t-gavel">
+  <svg viewBox="0 0 400 300" aria-hidden="true">
+    <ellipse class="gv-ring" cx="300" cy="234" rx="70" ry="16" fill="none" stroke="#C9A227" stroke-width="3"/>
+    <ellipse class="gv-ring gv-ring2" cx="300" cy="234" rx="70" ry="16" fill="none" stroke="#B23A48" stroke-width="2.5"/>
+    <rect x="182" y="232" width="200" height="22" rx="6" fill="url(#gNavy)"/>
+    <rect x="168" y="252" width="228" height="26" rx="7" fill="url(#gGold)"/>
+    <path d="M190 243 H374" stroke="rgba(226,197,97,.55)" stroke-width="2"/>
+    <g transform="translate(64 182)">
+      <g class="gv-arm">
+        <rect x="0" y="-8" width="214" height="16" rx="8" fill="url(#gGold)"/>
+        <circle cx="4" cy="0" r="11" fill="url(#gNavy)"/>
+        <rect x="198" y="-44" width="88" height="88" rx="14" fill="url(#gNavy)"/>
+        <rect x="192" y="-50" width="100" height="15" rx="5" fill="url(#gGold)"/>
+        <rect x="192" y="35" width="100" height="15" rx="5" fill="url(#gGold)"/>
+        <path d="M212 -26 V26" stroke="rgba(226,197,97,.35)" stroke-width="4" stroke-linecap="round"/>
+      </g>
+    </g>
+  </svg>
+</template>
+
+<!-- Gedung berpilar (fasad pengadilan / lembaga negara) -->
+<template id="t-building">
+  <svg viewBox="0 0 420 320" aria-hidden="true">
+    <g class="pl-roof">
+      <path d="M26 92 L210 18 L394 92 Z" fill="url(#gGold)"/>
+      <path d="M62 86 L210 30 L358 86 Z" fill="rgba(20,33,61,.25)"/>
+      <circle cx="210" cy="66" r="13" fill="#F3E6B8"/>
+      <rect x="36" y="92" width="348" height="22" rx="3" fill="url(#gGold)"/>
+    </g>
+    <g fill="url(#gGold)">
+      <g class="pl-col" style="--i:0"><rect x="52" y="114" width="40" height="9"/><rect x="57" y="123" width="30" height="148"/><rect x="52" y="268" width="40" height="9"/></g>
+      <g class="pl-col" style="--i:1"><rect x="122" y="114" width="40" height="9"/><rect x="127" y="123" width="30" height="148"/><rect x="122" y="268" width="40" height="9"/></g>
+      <g class="pl-col" style="--i:2"><rect x="190" y="114" width="40" height="9"/><rect x="195" y="123" width="30" height="148"/><rect x="190" y="268" width="40" height="9"/></g>
+      <g class="pl-col" style="--i:3"><rect x="258" y="114" width="40" height="9"/><rect x="263" y="123" width="30" height="148"/><rect x="258" y="268" width="40" height="9"/></g>
+      <g class="pl-col" style="--i:4"><rect x="328" y="114" width="40" height="9"/><rect x="333" y="123" width="30" height="148"/><rect x="328" y="268" width="40" height="9"/></g>
+      <rect x="24" y="278" width="372" height="15" rx="2"/>
+      <rect x="8" y="294" width="404" height="16" rx="2"/>
+    </g>
+  </svg>
+</template>
+
+<!-- Gulungan naskah UUD -->
+<template id="t-scroll">
+  <svg viewBox="0 0 300 380" aria-hidden="true">
+    <g class="nk-paper">
+      <rect x="42" y="38" width="216" height="300" fill="#FFFDF7" stroke="#C9A227" stroke-width="2"/>
+      <text x="150" y="96" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-weight="800" font-size="32" fill="#14213D">UUD 1945</text>
+      <text x="150" y="124" text-anchor="middle" font-family="Libre Franklin, sans-serif" font-weight="700" font-size="13" letter-spacing="4" fill="#B23A48">PEMBUKAAN</text>
+      <g stroke="#2C4573" stroke-width="5" stroke-linecap="round" fill="none">
+        <path class="nk-line" style="--i:0" pathLength="1" d="M70 152 H230"/>
+        <path class="nk-line" style="--i:1" pathLength="1" d="M70 174 H222"/>
+        <path class="nk-line" style="--i:2" pathLength="1" d="M70 196 H230"/>
+        <path class="nk-line" style="--i:3" pathLength="1" d="M70 218 H204"/>
+        <path class="nk-line" style="--i:4" pathLength="1" d="M70 240 H230"/>
+        <path class="nk-line" style="--i:5" pathLength="1" d="M70 262 H218"/>
+        <path class="nk-line" style="--i:6" pathLength="1" d="M70 284 H190"/>
+      </g>
+      <circle cx="206" cy="306" r="17" fill="none" stroke="#B23A48" stroke-width="3"/>
+      <circle cx="206" cy="306" r="10" fill="rgba(178,58,72,.25)"/>
+    </g>
+    <g>
+      <rect x="22" y="20" width="256" height="34" rx="17" fill="url(#gGold)"/>
+      <circle cx="18" cy="37" r="12" fill="url(#gNavy)"/><circle cx="282" cy="37" r="12" fill="url(#gNavy)"/>
+    </g>
+    <g class="nk-roll-bot">
+      <rect x="22" y="322" width="256" height="34" rx="17" fill="url(#gGold)"/>
+      <circle cx="18" cy="339" r="12" fill="url(#gNavy)"/><circle cx="282" cy="339" r="12" fill="url(#gNavy)"/>
+    </g>
+  </svg>
+</template>
+
+<!-- Gembok -->
+<template id="t-lock">
+  <svg viewBox="0 0 120 150" aria-hidden="true">
+    <path class="lk-sh" d="M32 72 V46 a28 28 0 0 1 56 0 V72" fill="none" stroke="#E2C561" stroke-width="11" stroke-linecap="round"/>
+    <g class="lk-body">
+      <rect x="12" y="66" width="96" height="76" rx="15" fill="url(#gGold)"/>
+      <circle cx="60" cy="98" r="10" fill="#14213D"/>
+      <path d="M54 102 h12 l3 22 h-18z" fill="#14213D"/>
+    </g>
+  </svg>
+</template>
+
+<div class="deck-viewport">
+<main class="deck-stage" id="deckStage">
+
+<!-- =====================================================
+     SLIDE 1 — COVER
+     ===================================================== -->
+<section class="slide dark" data-chrome="none" data-title="Cover">
+  <aside class="notes">Perkenalkan kelompok, lalu lempar pertanyaan: "UUD 1945 sudah pernah diubah, berapa kali dan kenapa?" Jawabannya dibuka di slide 9–12.</aside>
+
+  <div class="cv-top r" style="--d:0">
+    <span class="logo-badge"><img src="assets/logo-pnj.png" alt="Logo Politeknik Negeri Jakarta"></span>
+    <div><b>Politeknik Negeri Jakarta</b><span>Pendidikan Pancasila · Kelas TI 1C</span></div>
+  </div>
+
+  <div class="cv-left">
+    <p class="cv-script r" style="--d:.15">Mata Kuliah Pendidikan Pancasila</p>
+    <h1 class="cv-title r" style="--d:.3">UUD 1945:<br>Konstitusi yang<br><em>Terus Hidup</em></h1>
+    <p class="cv-sub r" style="--d:.5">Konstitusi, Dinamika, dan Amandemen UUD 1945</p>
+    <div class="cv-caps r" style="--d:.65"><span>Disusun oleh Kelompok 5</span><span>T.A. 2026/2027</span></div>
+  </div>
+
+  <div class="cv-divider r" style="--d:.2"></div>
+  <div class="cv-arch-outline arch r" style="--d:.5"></div>
+  <div class="cv-arch arch r-s" style="--d:.35">
+    <div class="bld illus" data-illus="building"></div>
+    <div class="scl illus" data-illus="scales"></div>
+    <div class="tag">JUSTITIA · LEX · CONSTITUTIO</div>
+  </div>
+
+  <div class="cv-names r" style="--d:.8">
+    <span>Nama Anggota 1<small>NIM</small></span>
+    <span>Nama Anggota 2<small>NIM</small></span>
+    <span>Nama Anggota 3<small>NIM</small></span>
+    <span>Nama Anggota 4<small>NIM</small></span>
+  </div>
+
+  <div class="orn-plus" style="left:960px; top:150px"></div>
+  <div class="orn-plus" style="right:56px; top:820px"></div>
+  <div class="orn-ring" style="left:-90px; top:520px; width:180px; height:180px"></div>
+  <div class="orn-ring" style="right:40px; top:40px; width:96px; height:96px"></div>
+  <div class="xs" style="left:860px; top:810px">× × × ×</div>
+</section>
+
+<!-- =====================================================
+     SLIDE 2 — PETA MATERI & CAPAIAN
+     ===================================================== -->
+<section class="slide paper" data-sec="0" data-title="Peta materi dan capaian" data-src="RPS Pendidikan Pancasila · Capaian pembelajaran">
+  <aside class="notes">Tiga pertanyaan panduan: Apa itu konstitusi? Mengapa UUD 1945 berubah? Apa dampaknya untuk kita? Durasi kasar: bagian 1 sekitar 20%, bagian 2 sekitar 30%, bagian 3 dan diskusi sekitar 50%.</aside>
+  <div class="ttl r"><span class="kick">Peta</span><h2>Materi dan Capaian</h2></div>
+  <div class="body">
+    <div class="ncard cap-box r" style="--d:.15">
+      <div style="flex:1">
+        <p class="lbl">Capaian pembelajaran</p>
+        <p>Mahasiswa mampu <b>menjelaskan UUD 1945 serta penerapannya</b> dalam kehidupan berbangsa dan bernegara.</p>
+      </div>
+      <div class="ill illus" data-illus="scroll"></div>
+    </div>
+    <div class="map3">
+      <div class="card r" style="--d:.3">
+        <div class="top"><span class="num">01</span><span class="ic-badge"><svg class="ic"><use href="#i-book"/></svg></span></div>
+        <h3>Konstitusi</h3>
+        <p class="desc">Apa itu dan untuk apa.</p>
+        <p class="q">“Apa itu konstitusi, dan mengapa negara membutuhkannya?”</p>
+        <span class="sl">Slide 3 – 4</span>
+      </div>
+      <div class="card r" style="--d:.45">
+        <div class="top"><span class="num">02</span><span class="ic-badge"><svg class="ic"><use href="#i-time"/></svg></span></div>
+        <h3>Dinamika UUD 1945</h3>
+        <p class="desc">Dari 1945 sampai Reformasi.</p>
+        <p class="q">“Mengapa konstitusi Indonesia berganti-ganti?”</p>
+        <span class="sl">Slide 5 – 8</span>
+      </div>
+      <div class="card r" style="--d:.6">
+        <div class="top"><span class="num">03</span><span class="ic-badge gold"><svg class="ic"><use href="#i-gavel"/></svg></span></div>
+        <h3>Amandemen 1999–2002</h3>
+        <p class="desc">Alasan, isi, dan dampaknya.</p>
+        <p class="q">“Apa dampak amandemen bagi kita sebagai warga?”</p>
+        <span class="sl">Slide 9 – 14</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 3 — PENGERTIAN KONSTITUSI
+     ===================================================== -->
+<section class="slide paper" data-sec="1" data-title="Pengertian konstitusi" data-src="Jurnal Humanika UNY; Jurnal Siyasah IAIN Metro">
+  <aside class="notes">UUD 1945 adalah konstitusi tertulis Indonesia, tapi konstitusi sebagai konsep lebih luas. Poin Wheare sengaja dipasang sebagai jembatan ke bagian amandemen: konstitusi yang baik justru menyediakan jalur untuk berubah.</aside>
+  <div class="ttl r"><span class="kick">Pengertian</span><h2>Konstitusi</h2></div>
+  <div class="body two" style="grid-template-columns: 960px 1fr">
+    <div>
+      <ul class="pts">
+        <li class="r" style="--d:.15">Asal kata: <em>constituer</em> (Prancis) = <span class="k">membentuk</span>.</li>
+        <li class="r" style="--d:.25"><span class="k">Arti luas:</span> seluruh aturan dasar penyelenggaraan negara, <b>tertulis maupun tidak tertulis</b>.</li>
+        <li class="r" style="--d:.35"><span class="k">Arti sempit:</span> naskah tertulis, yaitu <b>Undang-Undang Dasar (UUD)</b>.</li>
+        <li class="r" style="--d:.45"><b>Herman Heller:</b> konstitusi <span class="k">lebih luas</span> daripada UUD.</li>
+        <li class="r" style="--d:.55"><b>K.C. Wheare:</b> setiap UUD perlu memuat <span class="k">cara mengubahnya</span>, karena masyarakat berubah.</li>
+      </ul>
+      <p class="def-box r" style="--d:.7">Inti: setiap UUD adalah konstitusi, tetapi tidak semua konstitusi berbentuk UUD. Bagi Indonesia, konstitusi tertulisnya adalah <b>UUD NRI 1945</b>.</p>
+    </div>
+    <div>
+      <svg viewBox="0 0 680 470" style="width:100%; display:block; max-width:none; max-height:none" aria-label="Diagram: UUD berada di dalam konstitusi">
+        <circle class="draw" pathLength="1" cx="340" cy="235" r="226" fill="rgba(20,33,61,.05)" stroke="#14213D" stroke-width="3" style="--d:.2"/>
+        <circle cx="340" cy="235" r="210" fill="none" stroke="#14213D" stroke-width="1.5" stroke-dasharray="4 8" opacity=".35"/>
+        <text x="340" y="70" text-anchor="middle" font-family="Libre Franklin, sans-serif" font-weight="700" font-size="26" letter-spacing="5" fill="#14213D">KONSTITUSI</text>
+        <text x="340" y="102" text-anchor="middle" font-family="Source Serif 4, serif" font-style="italic" font-size="23" fill="#6B7080">tertulis + tidak tertulis</text>
+        <g class="r-s" style="--d:.9">
+          <circle cx="340" cy="290" r="128" fill="url(#gGold)"/>
+          <text x="340" y="292" text-anchor="middle" font-family="Playfair Display, serif" font-weight="900" font-size="64" fill="#14213D">UUD</text>
+          <text x="340" y="330" text-anchor="middle" font-family="Libre Franklin, sans-serif" font-weight="600" font-size="21" fill="#14213D">naskah tertulis</text>
+          <text x="340" y="358" text-anchor="middle" font-family="Libre Franklin, sans-serif" font-weight="700" font-size="20" fill="#B23A48">UUD NRI 1945</text>
+        </g>
+        <g class="r" style="--d:1.2" font-family="Libre Franklin, sans-serif" font-size="20" font-weight="600" fill="#2C4573">
+          <circle cx="168" cy="250" r="7" fill="#B23A48"/>
+          <text x="168" y="284" text-anchor="middle" font-size="19">konvensi</text>
+          <circle cx="512" cy="250" r="7" fill="#B23A48"/>
+          <text x="512" y="284" text-anchor="middle" font-size="19">kebiasaan</text>
+        </g>
+      </svg>
+      <div class="callout r" style="--d:1.3; margin-top:14px">
+        <span class="ic-badge brick" style="width:62px;height:62px;padding:14px"><svg class="ic"><use href="#i-mega"/></svg></span>
+        <span><b>Contoh tidak tertulis</b> (kebiasaan ketatanegaraan): <span class="k">pidato kenegaraan Presiden</span> setiap 16 Agustus.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 4 — FUNGSI & KEDUDUKAN + HIERARKI
+     ===================================================== -->
+<section class="slide paper" data-sec="1" data-title="Fungsi dan kedudukan konstitusi" data-src="Gramedia Literasi (Jimly Asshiddiqie); <b>Pasal 7 ayat (1) UU No. 12 Tahun 2011</b>">
+  <aside class="notes">Fungsi 1 dan 2 adalah yang paling inti. Hierarki di kanan adalah penguat visual untuk fungsi 1. Dasar hukumnya Pasal 7 ayat (1) UU No. 12 Tahun 2011: UUD 1945, TAP MPR, UU/Perppu, PP, Perpres, Perda Provinsi, Perda Kabupaten/Kota. Semakin ke bawah, peraturan tidak boleh bertentangan dengan yang di atasnya.</aside>
+  <div class="ttl r"><span class="kick">Fungsi &amp;</span><h2>Kedudukan Konstitusi</h2></div>
+  <div class="body two" style="grid-template-columns: 1060px 1fr">
+    <div>
+      <div class="grid22">
+        <div class="card r" style="--d:.15">
+          <div class="fc-top"><span class="num">1</span><span class="ic-badge gold"><svg class="ic"><use href="#i-peak"/></svg></span></div>
+          <h3>Sumber hukum tertinggi</h3>
+          <p>Semua aturan di bawahnya <span class="k">tidak boleh bertentangan</span> dengan UUD.</p>
+        </div>
+        <div class="card r" style="--d:.25">
+          <div class="fc-top"><span class="num">2</span><span class="ic-badge"><svg class="ic"><use href="#i-chain"/></svg></span></div>
+          <h3>Pembatas kekuasaan</h3>
+          <p>Menurut <b>C.F. Strong</b>, konstitusi membatasi tindakan <span class="k">sewenang-wenang</span> penguasa.</p>
+        </div>
+        <div class="card r" style="--d:.35">
+          <div class="fc-top"><span class="num">3</span><span class="ic-badge"><svg class="ic"><use href="#i-scroll"/></svg></span></div>
+          <h3>Piagam lahirnya negara</h3>
+          <p>Dokumen nasional yang menandai <b>berdirinya negara</b>.</p>
+        </div>
+        <div class="card r" style="--d:.45">
+          <div class="fc-top"><span class="num">4</span><span class="ic-badge"><svg class="ic"><use href="#i-flag"/></svg></span></div>
+          <h3>Simbol pemersatu</h3>
+          <p>Menurut <b>Jimly Asshiddiqie</b>, konstitusi berfungsi simbolik untuk <b>mempersatukan bangsa</b>.</p>
+        </div>
+      </div>
+      <div class="strip r" style="--d:.6">
+        <span class="ic-badge gold" style="width:52px;height:52px;padding:11px;box-shadow:none"><svg class="ic"><use href="#i-shield"/></svg></span>
+        <span>Konstitusi juga <b>menjamin hak warga negara</b>.</span>
+      </div>
+    </div>
+    <div class="pyr">
+      <h4 class="r" style="--d:.1">Hierarki Peraturan Perundang-undangan</h4>
+      <div class="tier top" style="--i:1; width:250px"><i>1</i> UUD NRI 1945</div>
+      <div class="tier" style="--i:2; width:300px; background:#1C2E52"><i>2</i> TAP MPR</div>
+      <div class="tier" style="--i:3; width:350px; background:#22365F"><i>3</i> UU / Perppu</div>
+      <div class="tier" style="--i:4; width:400px; background:#2A416F"><i>4</i> PP</div>
+      <div class="tier" style="--i:5; width:450px; background:#334D7F"><i>5</i> Perpres</div>
+      <div class="tier" style="--i:6; width:500px; background:#3D5A8E"><i>6</i> Perda Provinsi</div>
+      <div class="tier" style="--i:7; width:550px; background:#4A689C"><i>7</i> Perda Kabupaten/Kota</div>
+      <p class="note r" style="--d:1.2">Dasar: <b>Pasal 7 ayat (1) UU No. 12 Tahun 2011</b><br>Makin ke bawah, tidak boleh bertentangan dengan yang di atasnya.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 5 — TIMELINE 4 KONSTITUSI
+     ===================================================== -->
+<section class="slide paper" data-sec="2" data-title="Timeline 4 konstitusi" data-src="Fahum UMSU, “Konstitusi yang Pernah Berlaku di Indonesia Sejak 1945”">
+  <aside class="notes">Hafalkan urutannya: UUD 1945, RIS, UUDS, UUD 1945 lagi. Tiga konstitusi, empat periode. Slide 6–8 membahas tiap periode. Tekan → untuk memunculkan baris tabel satu per satu.</aside>
+  <div class="ttl r"><span class="kick">Dinamika</span><h2>Tiga Konstitusi, Empat Periode</h2></div>
+  <div class="body">
+    <div class="blocks">
+      <div class="blk b1" style="--i:0"><div class="yr">1945 – 1949</div><div class="nm">UUD 1945</div><span class="du">± 4 tahun 4 bulan</span></div>
+      <div class="blk b2" style="--i:1"><div class="yr">1949 – 1950</div><div class="nm">Konstitusi RIS</div><span class="du">± 8 bulan</span></div>
+      <div class="blk b3" style="--i:2"><div class="yr">1950 – 1959</div><div class="nm">UUDS 1950</div><span class="du">± 9 tahun</span></div>
+      <div class="blk b4" style="--i:3"><div class="yr">1959 – kini</div><div class="nm">UUD 1945 (kembali)</div><span class="du">berlaku sekarang</span></div>
+    </div>
+    <table class="tbl tl5" style="margin-top:30px">
+      <thead><tr><th style="width:400px">Periode</th><th>Konstitusi</th><th>Bentuk negara</th><th>Sistem pemerintahan</th></tr></thead>
+      <tbody>
+        <tr class="step"><td class="mono-num">18 Agu 1945 – 27 Des 1949</td><td><b>UUD 1945</b></td><td>Kesatuan</td><td>Presidensial <em style="color:#6B7080">(masa darurat)</em></td></tr>
+        <tr class="step"><td class="mono-num">27 Des 1949 – 17 Agu 1950</td><td><b>Konstitusi RIS</b></td><td><span class="k">Serikat (RIS)</span></td><td>Parlementer</td></tr>
+        <tr class="step"><td class="mono-num">17 Agu 1950 – 5 Jul 1959</td><td><b>UUDS 1950</b></td><td>Kesatuan</td><td>Parlementer</td></tr>
+        <tr class="step"><td class="mono-num">5 Jul 1959 – sekarang</td><td><b>UUD 1945 (kembali)</b></td><td>Kesatuan</td><td>Presidensial</td></tr>
+      </tbody>
+    </table>
+    <div class="memo r" style="--d:.5"><span class="tag">Catatan</span><span>Sejak 1959, UUD 1945 diamandemen <span class="k">empat kali (1999–2002)</span>. Urutan hafalan: <b>UUD 1945 → RIS → UUDS → UUD 1945 lagi</b>.</span></div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 6 — UUD 1945 AWAL
+     ===================================================== -->
+<section class="slide paper" data-sec="2" data-title="UUD 1945 awal (1945–1949)" data-src="Jimly Asshiddiqie via NU Online; Risalah Sidang BPUPKI–PPKI · Foto: Wikimedia Commons (domain publik)">
+  <aside class="notes">Tekankan bahwa UUD 1945 lahir dalam situasi revolusi, jadi wajar pendek dan fleksibel. Dari sinilah ada pandangan bahwa naskah ini sejak awal disiapkan untuk disempurnakan.</aside>
+  <div class="ttl r"><span class="kick">Lahirnya</span><h2>UUD 1945 Awal (1945–1949)</h2></div>
+  <div class="body" style="display:grid; grid-template-columns: 620px 1fr; grid-template-rows: 1fr auto; gap: 26px 60px">
+    <div>
+      <div class="photo r-s" style="--d:.1; height:340px; border-radius:26px">
+        <img src="assets/ppki-1945.jpg" alt="Sidang PPKI 18 Agustus 1945" onerror="this.parentElement.classList.add('missing')">
+        <div class="fallback illus" data-illus="scroll"></div>
+      </div>
+      <p class="cap r" style="--d:.3"><b>Sidang PPKI, 18 Agustus 1945</b> · Wikimedia Commons</p>
+      <p class="big-date r" style="--d:.45; margin-top:22px">18 Agustus 1945<small>Sehari setelah Proklamasi: UUD 1945 disahkan PPKI</small></p>
+    </div>
+    <ul class="pts" style="gap:26px">
+      <li class="r" style="--d:.2; font-size:30px"><b>18 Agustus 1945</b>, sehari setelah proklamasi: <b>PPKI</b> mengesahkan UUD 1945 sebagai <span class="k">konstitusi pertama</span>.</li>
+      <li class="r" style="--d:.3">Naskahnya disusun lewat <b>BPUPKI</b> (dilantik 28 Mei 1945).</li>
+      <li class="r" style="--d:.4">Masa <span class="k">darurat</span>: MPR dan DPR belum terbentuk, kekuasaan Presiden sangat besar, dibantu <b>KNIP</b>.</li>
+      <li class="r" style="--d:.5">Sejak awal Bung Karno menyebut UUD ini bersifat <b>sementara</b> (disampaikan Jimly Asshiddiqie).</li>
+      <li class="r" style="--d:.6">Isi awal: <b>37 pasal</b>, ditambah Aturan Peralihan dan Aturan Tambahan.</li>
+    </ul>
+    <div class="flow r" style="--d:.8; grid-column: 1 / -1">
+      <span class="lead">Ringkasnya</span>
+      <span class="node"><span class="ic-badge"><svg class="ic"><use href="#i-alert"/></svg></span>Masa darurat</span>
+      <svg class="arr" width="60" height="20" viewBox="0 0 60 20"><use href="#i-arrow"/></svg>
+      <span class="node"><span class="ic-badge"><svg class="ic"><use href="#i-crown"/></svg></span>Presiden sangat kuat</span>
+      <svg class="arr" width="60" height="20" viewBox="0 0 60 20"><use href="#i-arrow"/></svg>
+      <span class="node"><span class="ic-badge"><svg class="ic"><use href="#i-people"/></svg></span>Dibantu KNIP</span>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 7 — KONSTITUSI RIS vs UUDS 1950
+     ===================================================== -->
+<section class="slide paper" data-sec="2" data-title="Konstitusi RIS dan UUDS 1950" data-src="Fahum UMSU; Jurnal Siyasah IAIN Metro · Foto KMB: Wikimedia Commons (domain publik)">
+  <aside class="notes">UUDS artinya "sementara" karena Konstituante diberi tugas membuat UUD tetap. Kegagalan tugas itu yang memicu Dekrit 1959 di slide berikutnya.</aside>
+  <div class="ttl r"><span class="kick">Perbandingan</span><h2>Konstitusi RIS &amp; UUDS 1950</h2></div>
+  <div class="body">
+    <div class="cmp r" style="--d:.1">
+      <div class="lab hd" style="background:#E4E1D8">Aspek</div>
+      <div class="hd h1">
+        <svg class="map map-ris" viewBox="0 0 400 160" aria-label="Peta terpecah negara bagian">
+          <g stroke="#14213D" stroke-width="2">
+            <path class="isle" style="--i:0; --dx:-14px; --dy:-6px" d="M18 28 L64 64 L98 108 L88 118 L52 86 L12 40 Z" fill="#E2C561"/>
+            <path class="isle" style="--i:1; --dx:-6px; --dy:12px" d="M104 124 L192 128 L190 140 L104 136 Z" fill="#8C909A"/>
+            <path class="isle" style="--i:2; --dx:0; --dy:-12px" d="M128 40 Q160 16 186 40 Q198 76 170 96 Q140 102 126 74 Z" fill="#C9A227"/>
+            <path class="isle" style="--i:3; --dx:10px; --dy:-8px" d="M214 48 L242 42 L232 60 L252 76 L232 72 L228 104 L216 80 Z" fill="#E6DABB"/>
+            <path class="isle" style="--i:4; --dx:14px; --dy:6px" d="M296 70 Q340 54 388 80 L382 112 Q340 106 306 96 Z" fill="#A7A9B0"/>
+            <path class="isle" style="--i:5; --dx:6px; --dy:14px" d="M204 136 L262 132 L262 140 L204 142 Z" fill="#E2C561"/>
+          </g>
+          <g stroke="#B23A48" stroke-width="2.5" stroke-dasharray="6 6" fill="none">
+            <path d="M100 10 V150"/><path d="M204 10 V150"/><path d="M280 10 V150"/>
+          </g>
+        </svg>
+        <div><h3>Konstitusi RIS 1949</h3><small>NEGARA SERIKAT</small></div>
+        <div class="photo ph"><img src="assets/kmb-1949.jpg" alt="Konferensi Meja Bundar 1949" onerror="this.parentElement.classList.add('missing')"></div>
+      </div>
+      <div class="hd h2">
+        <svg class="map map-nkri" viewBox="0 0 400 160" aria-label="Peta utuh NKRI">
+          <g fill="#14213D">
+            <path class="isle" style="--i:0" d="M18 28 L64 64 L98 108 L88 118 L52 86 L12 40 Z"/>
+            <path class="isle" style="--i:1" d="M104 124 L192 128 L190 140 L104 136 Z"/>
+            <path class="isle" style="--i:2" d="M128 40 Q160 16 186 40 Q198 76 170 96 Q140 102 126 74 Z"/>
+            <path class="isle" style="--i:3" d="M214 48 L242 42 L232 60 L252 76 L232 72 L228 104 L216 80 Z"/>
+            <path class="isle" style="--i:4" d="M296 70 Q340 54 388 80 L382 112 Q340 106 306 96 Z"/>
+            <path class="isle" style="--i:5" d="M204 136 L262 132 L262 140 L204 142 Z"/>
+          </g>
+        </svg>
+        <div><h3>UUDS 1950</h3><small>KEMBALI KE NEGARA KESATUAN</small></div>
+      </div>
+
+      <div class="lab">Berlaku</div>
+      <div class="c1 mono-num">27 Des 1949 – 17 Agu 1950</div>
+      <div class="c2 mono-num">17 Agu 1950 – 5 Jul 1959</div>
+
+      <div class="lab">Latar</div>
+      <div class="c1">Hasil <b>Konferensi Meja Bundar</b> (KMB, Den Haag 1949)</div>
+      <div class="c2">Indonesia <b>kembali menjadi negara kesatuan</b></div>
+
+      <div class="lab">Bentuk negara</div>
+      <div class="c1"><span class="k">Serikat (RIS)</span></div>
+      <div class="c2"><b>Kesatuan (NKRI)</b></div>
+
+      <div class="lab">Sistem</div>
+      <div class="c1">Parlementer</div>
+      <div class="c2">Parlementer</div>
+
+      <div class="lab last">Catatan</div>
+      <div class="c1 last">UUD 1945 tidak dibatalkan, tetapi hanya berlaku di <b>Negara Bagian RI (Yogyakarta)</b></div>
+      <div class="c2 last"><b>Konstituante</b> hasil Pemilu 1955 <span class="k">gagal</span> menyusun UUD tetap</div>
+    </div>
+    <div class="chain-flow r" style="--d:.5">
+      <span>UUDS = “sementara”</span><i>→</i>
+      <span>Konstituante ditugasi menyusun UUD tetap</span><i>→</i>
+      <span>Gagal</span><i>→</i>
+      <span class="k">Dekrit 5 Juli 1959</span>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 8 — DEKRIT 1959, ORDE LAMA, ORDE BARU
+     ===================================================== -->
+<section class="slide paper" data-sec="2" data-title="Dekrit 1959, Orde Lama, dan Orde Baru" data-src="Roboguru (Isi Dekrit 5 Juli 1959); Jurnal Humanika UNY · Foto: Wikimedia Commons (domain publik)">
+  <aside class="notes">Poin Pasal 7 penting karena menjadi jembatan ke slide 9: tidak adanya batas periode adalah contoh "pasal karet" yang diperbaiki lewat amandemen. Orde Lama dan Orde Baru sama-sama memakai UUD 1945 dari Dekrit 1959 sampai amandemen; dipisah hanya untuk narasi, bukan periode konstitusi baru.</aside>
+  <div class="ttl r"><span class="kick">Kembalinya</span><h2>Dekrit 1959, Orde Lama &amp; Orde Baru</h2></div>
+  <div class="body" style="display:grid; grid-template-columns: 330px 1fr 400px; gap: 44px">
+    <div class="vtl">
+      <div class="ev r-l" style="--d:.15"><span class="dot">I</span><div><div class="yr">1956</div><div class="tx">Konstituante dibentuk, bertugas menyusun UUD tetap</div></div></div>
+      <div class="ev hot r-l" style="--d:.35"><span class="dot">II</span><div><div class="yr">1959</div><div class="tx">5 Juli: Dekrit Presiden, UUD 1945 berlaku kembali</div></div></div>
+      <div class="ev r-l" style="--d:.55"><span class="dot">III</span><div><div class="yr">1966–1998</div><div class="tx">Orde Baru: UUD 1945 “disakralkan”</div></div></div>
+    </div>
+    <ul class="pts sm" style="gap:16px">
+      <li class="r" style="--d:.2">Konstituante (dibentuk 1956) <span class="k">gagal</span> menetapkan UUD baru.</li>
+      <li class="r" style="--d:.3"><b>5 Juli 1959:</b> Presiden Soekarno mengeluarkan Dekrit, <b>dekrit pertama</b> dalam sejarah RI. Isinya:
+        <ul class="sub">
+          <li><span class="n">1</span>Membubarkan <b>Konstituante</b>.</li>
+          <li><span class="n">2</span><b>UUD 1945 berlaku kembali</b>, UUDS 1950 tidak berlaku.</li>
+          <li><span class="n">3</span>Membentuk <b>MPRS</b> dan <b>DPAS</b>.</li>
+        </ul>
+      </li>
+      <li class="r" style="--d:.4"><b>Orde Lama:</b> banyak penyimpangan, misalnya <span class="k">Presiden seumur hidup</span>.</li>
+      <li class="r" style="--d:.5"><b>Orde Baru:</b> UUD 1945 disakralkan, tidak boleh diubah. <b>Pasal 7 asli</b> tidak membatasi berapa kali Presiden dipilih kembali.</li>
+      <li class="r" style="--d:.6">Akibatnya kekuasaan Presiden <span class="k">sentralistik</span> tanpa pengawasan berarti.</li>
+    </ul>
+    <div>
+      <div class="photo arch frame-gold r-s" style="--d:.2; height:440px">
+        <img src="assets/dekrit-1959.jpg" alt="Soekarno membacakan Dekrit 5 Juli 1959" style="object-position:72% 50%" onerror="this.parentElement.classList.add('missing')">
+        <div class="fallback illus" data-illus="building"></div>
+      </div>
+      <p class="cap r" style="--d:.4"><b>Soekarno membacakan Dekrit</b>, Istana Merdeka, 5 Juli 1959</p>
+      <div class="lockcap r" style="--d:.6">
+        <div class="illus" data-illus="lock"></div>
+        <p>Disakralkan<span>UUD 1945 dikunci, tidak boleh diubah selama Orde Baru.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 9 — ALASAN AMANDEMEN
+     ===================================================== -->
+<section class="slide paper" data-sec="3" data-title="Alasan amandemen" data-src="Katalog Perpustakaan MK (A.M. Fatwa, Potret Konstitusi Pasca Amandemen) · Foto: Wikimedia Commons (domain publik)">
+  <aside class="notes">Katalog Perpustakaan MK (buku A.M. Fatwa) menyebut Pembukaan UUD 1945 dipertahankan karena memuat falsafah Pancasila, dan bentuk NKRI tidak boleh diubah. Ini cocok jadi bahan latihan soal "apa yang tidak diamandemen".</aside>
+  <div class="ttl r"><span class="kick">Mengapa</span><h2>UUD 1945 Diamandemen?</h2></div>
+  <div class="body" style="display:grid; grid-template-columns: 1150px 1fr; gap: 44px">
+    <div class="why">
+      <div class="grid22">
+        <div class="card r" style="--d:.15"><div class="hrow"><span class="ic-badge"><svg class="ic"><use href="#i-chain"/></svg></span><h3><span class="g">1</span> Cegah otoritarianisme</h3></div>
+          <p>Kekuasaan terlalu besar di eksekutif (<em>executive heavy</em>) diganti mekanisme saling mengawasi dan mengimbangi (<span class="k"><em>checks and balances</em></span>).</p></div>
+        <div class="card r" style="--d:.25"><div class="hrow"><span class="ic-badge"><svg class="ic"><use href="#i-search"/></svg></span><h3><span class="g">2</span> Hapus pasal multitafsir</h3></div>
+          <p>Celah <span class="k">“pasal karet”</span> yang bisa melanggengkan kekuasaan, misalnya <b>tidak ada batas periode Presiden</b>.</p></div>
+        <div class="card r" style="--d:.35"><div class="hrow"><span class="ic-badge"><svg class="ic"><use href="#i-shield"/></svg></span><h3><span class="g">3</span> Perkuat HAM</h3></div>
+          <p>Tuntutan Reformasi akan <b>perlindungan hak warga</b> yang lebih rinci.</p></div>
+        <div class="card r" style="--d:.45"><div class="hrow"><span class="ic-badge"><svg class="ic"><use href="#i-map"/></svg></span><h3><span class="g">4</span> Wujudkan otonomi daerah</h3></div>
+          <p>Kekuasaan <b>tidak hanya di pusat</b>; daerah ikut mengatur urusannya.</p></div>
+      </div>
+      <div class="keep r" style="--d:.6">
+        <div class="illus" data-illus="lock"></div>
+        <div><p class="lbl">Yang tidak diubah</p><p><b>Pembukaan UUD 1945</b> dan <b>bentuk NKRI</b>.<span>Pembukaan dipertahankan karena memuat falsafah Pancasila.</span></p></div>
+      </div>
+    </div>
+    <div>
+      <div class="photo arch frame-gold r-s" style="--d:.25; height:560px">
+        <img src="assets/gedung-mpr.jpg" alt="Gedung MPR/DPR/DPD RI, Senayan" style="object-position:66% 50%" onerror="this.parentElement.classList.add('missing')">
+        <div class="fallback illus" data-illus="building"></div>
+      </div>
+      <p class="cap r" style="--d:.4"><b>Gedung MPR/DPR/DPD RI</b>, Senayan: tempat Sidang MPR 1999–2002 yang mengubah UUD 1945</p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 10 — EMPAT TAHAP AMANDEMEN
+     ===================================================== -->
+<section class="slide paper" data-sec="3" data-title="Empat tahap amandemen" data-src="Jurnal Siyasah IAIN Metro (empat tahap perubahan); Pusdik MK">
+  <aside class="notes">Jalan pintas mengingat: urutan temanya Kekuasaan, Hak, Lembaga, Penyempurnaan. Tanggal persis sidang tidak perlu dihafal; bulan dan tahun cukup.</aside>
+  <div class="ttl r"><span class="kick">Empat Tahap</span><h2>Amandemen UUD 1945 (1999–2002)</h2></div>
+  <div class="body">
+    <div class="bridge r" style="--d:.1">
+      <span>Lewat <b>Sidang MPR</b>, bertahap empat kali:</span>
+      <span>Presiden dibatasi</span><i>→</i><span>hak &amp; daerah</span><i>→</i><span>lembaga baru</span><i>→</i><span>penyempurnaan</span>
+    </div>
+    <div class="htl">
+      <div class="rail"><svg viewBox="0 0 1000 6" preserveAspectRatio="none"><path class="draw" pathLength="1" d="M0 3 H1000" stroke="#14213D" stroke-width="6" style="--d:.3"/></svg></div>
+      <div class="stg" style="left:12.5%; --i:0"><div class="when"><small>Okt</small>1999</div><div class="node">I</div><div class="theme">Kekuasaan</div><p class="desc">Presiden dibatasi, DPR dikuatkan.</p></div>
+      <div class="stg" style="left:37.5%; --i:1"><div class="when"><small>Agu</small>2000</div><div class="node">II</div><div class="theme">Hak</div><p class="desc">HAM dan otonomi daerah.</p></div>
+      <div class="stg" style="left:62.5%; --i:2"><div class="when"><small>Nov</small>2001</div><div class="node">III</div><div class="theme">Lembaga</div><p class="desc">Pemilu langsung, MK, KY, DPD.</p></div>
+      <div class="stg end" style="left:87.5%; --i:3"><div class="when"><small>Agu</small>2002</div><div class="node">IV</div><div class="theme">Penyempurnaan</div><p class="desc">DPA dihapus, anggaran pendidikan.</p></div>
+    </div>
+    <div class="khlp r" style="--d:1.8">
+      <span>Jalan pintas mengingat:</span>
+      <span><span class="lt">K</span><span class="lt">H</span><span class="lt">L</span><span class="lt">P</span></span>
+      <span><b>K</b>ekuasaan · <b>H</b>ak · <b>L</b>embaga · <b>P</b>enyempurnaan</span>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 11 — RINCIAN AMANDEMEN I–IV
+     ===================================================== -->
+<section class="slide paper" data-sec="3" data-title="Rincian amandemen I–IV" data-src="Pusdik MK, “Mahkamah Konstitusi dalam Sistem Ketatanegaraan RI”; Jurnal Siyasah IAIN Metro">
+  <aside class="notes">Slide referensi untuk ujian; cukup tunjuk kata tebal. Tahap I dan II paling ringkas, fokusnya Pasal 7 dan Bab XA, sedangkan tahap III paling padat. DPD lahir di tahap III (Pasal 22C–22D), sedangkan susunan MPR dari DPR dan DPD ditetapkan di tahap IV. Tekan → untuk memunculkan baris satu per satu.</aside>
+  <div class="ttl r"><span class="kick">Rincian</span><h2>Amandemen I – IV</h2></div>
+  <div class="gavel11 illus gavel-step r" style="--d:.2" data-illus="gavel"></div>
+  <div class="body">
+    <table class="tbl amd">
+      <thead><tr><th style="width:150px; text-align:center">Tahap</th><th style="width:230px">Waktu</th><th>Perubahan utama</th></tr></thead>
+      <tbody>
+        <tr class="step"><td class="rom">I</td><td class="when">Okt 1999<small>Kekuasaan</small></td><td><b>Maksimal 2 periode</b> Presiden dan Wapres (Pasal 7). Hak membentuk UU pindah dari Presiden ke <b>DPR</b> (Pasal 20).</td></tr>
+        <tr class="step"><td class="rom">II</td><td class="when">Agu 2000<small>Hak &amp; daerah</small></td><td><b>Bab XA HAM</b> (Pasal 28A–28J, rinci hak warga). Pengaturan <b>otonomi daerah</b> (Pasal 18).</td></tr>
+        <tr class="step"><td class="rom">III</td><td class="when">Nov 2001<small>Lembaga</small></td><td><b>Pemilu langsung</b> Presiden (Pasal 6A). Dibentuk <b>MK</b> dan <b>KY</b>. Lahir <b>DPD</b> (Pasal 22C–22D). Indonesia adalah <b>negara hukum</b> (Pasal 1 ayat 3).</td></tr>
+        <tr class="step"><td class="rom">IV</td><td class="when">Agu 2002<small>Penyempurnaan</small></td><td>MPR terdiri dari <b>DPR + DPD</b>. <b>DPA dihapus</b>. Anggaran pendidikan <b>minimal 20%</b> APBN/APBD (Pasal 31 ayat 4).</td></tr>
+      </tbody>
+    </table>
+    <div class="fn r" style="--d:.4"><span class="tag">Awas tertukar</span><span><b>DPD</b> lahir di Tahap <b>III</b> (Pasal 22C–22D); susunan <b>MPR = DPR + DPD</b> baru ditetapkan di Tahap <b>IV</b>.</span></div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 12 — SEBELUM vs SESUDAH
+     ===================================================== -->
+<section class="slide paper" data-sec="3" data-title="Sebelum vs sesudah amandemen" data-src="Pusdik MK; Jurnal Humani USM, “Hubungan Antar Lembaga Negara Sebelum dan Sesudah Amandemen”">
+  <aside class="notes">Inti jawaban esai: MPR turun dari lembaga tertinggi menjadi sejajar, jadi tidak ada lagi hierarki antar lembaga negara, yang ada adalah saling mengawasi. Walau sejajar, MPR tetap bisa memberhentikan Presiden dan Wapres setelah MK memutus bersalah.</aside>
+  <div class="ttl r"><span class="kick">Dampak</span><h2>Sebelum vs Sesudah Amandemen</h2></div>
+  <div class="body">
+    <div class="ba">
+      <div class="pane before r-l" style="--d:.15">
+        <div class="ptitle"><b>Sebelum</b><span>MPR di puncak</span></div>
+        <div class="box mpr">MPR&nbsp;<small>TERTINGGI</small></div>
+        <svg class="tree-lines" viewBox="0 0 560 40" preserveAspectRatio="none"><path d="M280 0 V18 M56 18 H504 M56 18 V40 M168 18 V40 M280 18 V40 M392 18 V40 M504 18 V40" stroke="#14213D" stroke-width="2.5" fill="none"/></svg>
+        <div class="row5"><span class="box">Presiden</span><span class="box">DPR</span><span class="box gone">DPA</span><span class="box">BPK</span><span class="box">MA</span></div>
+      </div>
+      <div class="illus r-s" style="--d:.4; align-self:center" data-illus="scales"></div>
+      <div class="pane after r" style="--d:.3">
+        <div class="ptitle"><b>Sesudah</b><span class="legend"><span><i style="background:#C9A227"></i>baru</span><span><i style="background:#14213D"></i>tetap</span><span><i style="background:#B9B6AD"></i>dihapus: DPA</span></span></div>
+        <div class="row8"><span class="box">MPR</span><span class="box">DPR</span><span class="box new">DPD</span><span class="box">Presiden</span><span class="box">BPK</span><span class="box">MA</span><span class="box new">MK</span><span class="box new">KY</span></div>
+        <div class="level"><span>Sejajar: saling mengawasi (<em>checks and balances</em>)</span></div>
+      </div>
+    </div>
+    <table class="tbl ba-tbl r" style="--d:.5; margin-top:24px">
+      <thead><tr><th>Aspek</th><th>Sebelum</th><th>Sesudah</th></tr></thead>
+      <tbody>
+        <tr><td>Kedaulatan rakyat (Pasal 1 ayat 2)</td><td>Dilakukan sepenuhnya oleh MPR</td><td>Dilaksanakan menurut UUD</td></tr>
+        <tr><td>MPR</td><td>Lembaga tertinggi negara</td><td>Sejajar dengan lembaga negara lain</td></tr>
+        <tr><td>Lembaga negara</td><td>MPR, Presiden, DPR, DPA, BPK, MA</td><td>MPR, DPR, DPD, Presiden, BPK, MA, MK (+ KY)</td></tr>
+        <tr><td>Presiden</td><td>Dipilih MPR, tanpa batas periode</td><td>Dipilih langsung, maksimal 2 periode</td></tr>
+        <tr><td>Naskah</td><td>37 pasal, ada Penjelasan</td><td>73 pasal, Penjelasan dihapus</td></tr>
+        <tr><td>Prinsip</td><td><em>Executive heavy</em></td><td><em>Checks and balances</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 13 — PENERAPAN & PASAL 37
+     ===================================================== -->
+<section class="slide paper" data-sec="3" data-title="Penerapan dan prosedur perubahan (Pasal 37)" data-src="Naskah UUD NRI 1945 Pasal 6A, 24C, 31, 37; Hukumonline (2019); Putusan MK No. 62/PUU-XXII/2024 (mkri.id)">
+  <aside class="notes">Angka 1/3, 2/3, dan 50%+1 sesuai naskah Pasal 37 ayat (1), (3), (4); ayat (5) menyatakan bentuk NKRI tidak dapat diubah. Kaitkan ke slide 3: inilah "cara mengubah" yang dimaksud Wheare. Contoh kasus: Putusan MK 62/PUU-XXII/2024 (diputus 2 Januari 2025), diajukan mahasiswa; cek ulang ringkasannya di mkri.id sebelum presentasi.</aside>
+  <div class="ttl r"><span class="kick">Penerapan</span><h2>UUD 1945 dalam Kehidupan Bernegara</h2></div>
+  <div class="body" style="display:grid; grid-template-columns: 1000px 1fr; gap: 50px">
+    <div>
+      <p class="lbl r" style="margin-bottom:16px">Hasil amandemen yang kamu alami</p>
+      <div class="apply">
+        <div class="it r" style="--d:.15"><span class="ic-badge"><svg class="ic"><use href="#i-ballot"/></svg></span><p><b>Pemilu langsung:</b> rakyat memilih Presiden dan Wapres (<span class="k">Pasal 6A</span>).</p></div>
+        <div class="it r" style="--d:.25"><span class="ic-badge gold"><svg class="ic"><use href="#i-scales"/></svg></span><p><b>Mahkamah Konstitusi:</b> menguji UU terhadap UUD (<span class="k">Pasal 24C ayat 1</span>), sehingga warga bisa menggugat UU yang dianggap melanggar konstitusi.</p></div>
+        <div class="it r" style="--d:.35"><span class="ic-badge"><svg class="ic"><use href="#i-grad"/></svg></span><p><b>Anggaran pendidikan minimal 20%</b> APBN/APBD (<span class="k">Pasal 31 ayat 4</span>).</p></div>
+        <div class="it r" style="--d:.45"><span class="ic-badge"><svg class="ic"><use href="#i-mega"/></svg></span><p><b>HAM</b> dijamin rinci (<span class="k">Bab XA</span>), termasuk kebebasan berpendapat.</p></div>
+      </div>
+      <div class="case r" style="--d:.6">
+        <p class="lbl">Contoh kasus · <em>Putusan MK No. 62/PUU-XXII/2024</em></p>
+        <div class="path">
+          <span><b>Perkara</b>Mahasiswa menggugat ambang batas 20% pencalonan Presiden</span><i>→</i>
+          <span><b>Yang diuji</b>Pasal 222 UU Pemilu terhadap UUD 1945</span><i>→</i>
+          <span><b>Hasil (2 Jan 2025)</b>Dinyatakan bertentangan dengan UUD 1945</span>
+        </div>
+      </div>
+    </div>
+    <div class="p37">
+      <h4 class="r" style="--d:.2"><span>Cara</span> mengubah UUD (Pasal 37)</h4>
+      <div class="stp r" style="--d:.3"><span class="fr">≥ 1/3</span><p><small>Ayat (1) · Usul</small>Diajukan minimal 1/3 anggota MPR, tertulis &amp; jelas bagiannya.</p></div>
+      <div class="down r" style="--d:.35"><svg width="26" height="24" viewBox="0 0 26 24"><use href="#i-down"/></svg></div>
+      <div class="stp r" style="--d:.45"><span class="fr">≥ 2/3</span><p><small>Ayat (3) · Kuorum</small>Sidang dihadiri minimal 2/3 anggota MPR.</p></div>
+      <div class="down r" style="--d:.5"><svg width="26" height="24" viewBox="0 0 26 24"><use href="#i-down"/></svg></div>
+      <div class="stp r" style="--d:.6"><span class="fr">50%+1</span><p><small>Ayat (4) · Putusan</small>Disetujui minimal 50% + 1 dari seluruh anggota MPR.</p></div>
+      <div class="down r" style="--d:.65"><svg width="26" height="24" viewBox="0 0 26 24"><use href="#i-down"/></svg></div>
+      <div class="stp lock r" style="--d:.75"><div class="illus" data-illus="lock"></div><p><small>Ayat (5) · Batas mutlak</small><b style="color:#fff">Bentuk NKRI tidak dapat diubah.</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 14 — ISU TERKINI & DISKUSI
+     ===================================================== -->
+<section class="slide paper" data-sec="3" data-title="Isu terkini: wacana amandemen kelima" data-src="AFU.ID (8 Juli 2026); Hukumonline (2018); NU Online">
+  <aside class="notes">Bawakan netral. Hindari menyebut partai atau kubu. Ada isu liar bahwa amandemen dipakai untuk memakzulkan Wapres; Ketua MPR membantah dan menyatakan belum ada satu pasal pun soal itu. Jangan masukkan ke slide, tapi siapkan jawaban singkat itu kalau ada yang bertanya. Sumber status Juli 2026 berasal dari satu media (afu.id), jadi cocokkan dengan berita nasional atau situs MPR.</aside>
+  <div class="ttl r"><span class="kick">Isu Terkini</span><h2>Wacana Amandemen Kelima</h2></div>
+  <div class="body" style="display:grid; grid-template-columns: 960px 1fr; gap: 60px">
+    <div>
+      <p class="now r" style="--d:.1"><small>Status per</small>Juli 2026</p>
+      <p class="r" style="--d:.2; font-size:29px; line-height:1.45; margin-top:16px">Ketua MPR <b>Ahmad Muzani</b>: MPR masih <b>menyerap aspirasi</b>, <span class="k">belum memutuskan</span> amandemen kelima, dan belum ada draf. Presiden <b>Prabowo</b> mengingatkan agar <b>tidak terburu-buru</b>.</p>
+      <p class="lbl r" style="--d:.3; margin-top:28px">Topik yang sering dibahas</p>
+      <div class="chips r" style="--d:.35"><span>PPHN (Pokok-Pokok Haluan Negara)</span><span>Penataan DPD</span><span>Kewenangan KY</span></div>
+      <p class="lbl r" style="--d:.45; margin-top:28px">Tiga kelompok pandangan <span style="color:#6B7080; letter-spacing:.06em; text-transform:none; font-weight:600">(pemetaan Badan Pengkajian MPR)</span></p>
+      <div class="views r" style="--d:.5">
+        <div><i>A</i>Kembali ke UUD 1945 asli</div>
+        <div><i>B</i>Amandemen kelima</div>
+        <div><i>C</i>Evaluasi &amp; pembenahan hasil amandemen</div>
+      </div>
+    </div>
+    <div class="disc r-s" style="--d:.3">
+      <span class="qm">?</span>
+      <h3>Diskusi</h3>
+      <ol>
+        <li><i>1</i><span>Perlukah amandemen kelima? Apa alasannya?</span></li>
+        <li><i>2</i><span>Kalau perlu, apa yang diubah dan siapa yang mengawal prosesnya?</span></li>
+        <li><i>3</i><span>Apa risikonya jika dibuka tanpa kesepakatan luas?</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 15 — KESIMPULAN (dark)
+     ===================================================== -->
+<section class="slide dark" data-sec="4" data-title="Kesimpulan" data-src="Ringkasan materi Kelompok 5">
+  <aside class="notes">Ulang pertanyaan pemancing dari slide 1 dan jawab: empat kali, 1999–2002, dengan alasan mencegah kekuasaan terpusat. Siapkan dua jawaban cadangan untuk tanya jawab: perbedaan konstitusi dan UUD, dan kedudukan MPR sebelum dan sesudah.</aside>
+  <div class="ttl r"><span class="kick">Kesimpulan</span><h2>Tiga Hal untuk Dibawa Pulang</h2></div>
+  <div class="body">
+    <div class="concl">
+      <div class="it r-l" style="--d:.2"><span class="n">1</span><span class="ic-badge"><svg class="ic"><use href="#i-book"/></svg></span><p><b>Konstitusi</b> adalah aturan dasar negara. Fungsinya <b>membatasi kekuasaan</b> dan menjadi <b>hukum tertinggi</b>.</p></div>
+      <div class="it r-l" style="--d:.4"><span class="n">2</span><span class="ic-badge"><svg class="ic"><use href="#i-time"/></svg></span><p><b>UUD 1945</b> melewati empat periode (1945, RIS, UUDS, 1959) dan diamandemen <b>empat kali (1999–2002)</b> tanpa mengubah <b>Pembukaan</b> dan <b>bentuk NKRI</b>.</p></div>
+      <div class="it r-l" style="--d:.6"><span class="n">3</span><span class="ic-badge"><svg class="ic"><use href="#i-scales"/></svg></span><p><b>Hasilnya:</b> kekuasaan terbagi, HAM lebih kuat, rakyat memilih langsung. Konstitusi harus tetap <b>hidup dan dikawal</b>.</p></div>
+    </div>
+  </div>
+  <div class="illus r-s" style="--d:.3; position:absolute; right:150px; top:250px; width:440px; z-index:1" data-illus="scales"></div>
+  <div class="orn-ring" style="right:110px; top:220px; width:520px; height:520px; border-color:rgba(226,197,97,.25)"></div>
+  <div class="thanks r" style="--d:.9">
+    <h3>Terima kasih. <span>Ada pertanyaan?</span></h3>
+    <div class="who"><span>Kelompok 5 · TI 1C<br>Politeknik Negeri Jakarta</span><img src="assets/logo-pnj.png" alt="Logo PNJ"></div>
+  </div>
+</section>
+
+<!-- =====================================================
+     SLIDE 16 — REFERENSI
+     ===================================================== -->
+<section class="slide paper" data-sec="4" data-title="Referensi" data-src="Foto: Wikimedia Commons (lihat assets/CREDITS.txt) · Logo PNJ: Wikipedia Indonesia">
+  <aside class="notes">Wajib ada karena RPS memakai referensi 1–3. Tambahkan buku acuan dosen di baris yang ditandai merah (mode edit: tekan E).</aside>
+  <div class="ttl r"><span class="kick">Daftar</span><h2>Referensi</h2></div>
+  <div class="body">
+    <ol class="refs r" style="--d:.15">
+      <li><b>Undang-Undang Dasar Negara Republik Indonesia Tahun 1945</b> (naskah setelah perubahan keempat). MPR RI.<a href="https://www.mpr.go.id" target="_blank" rel="noopener">mpr.go.id</a></li>
+      <li><b>UU No. 12 Tahun 2011</b> tentang Pembentukan Peraturan Perundang-undangan, Pasal 7 ayat (1).<a href="https://peraturan.go.id" target="_blank" rel="noopener">peraturan.go.id</a></li>
+      <li><b>Mahkamah Konstitusi dalam Sistem Ketatanegaraan RI</b>. Materi Pusdik MK.<a href="https://pusdik.mkri.id/materi/materi_197_MAHKAMAH%20KONSTITUSI%20DALAM%20SISTEM%20%20KETATANEGARAAN%20RI.pdf" target="_blank" rel="noopener">pusdik.mkri.id</a></li>
+      <li><b>Konstitusi yang Pernah Berlaku di Indonesia Sejak 1945</b>. Fakultas Hukum UMSU.<a href="https://fahum.umsu.ac.id/konstitusi-yang-pernah-berlaku-di-indonesia-sejak-1945/" target="_blank" rel="noopener">fahum.umsu.ac.id</a></li>
+      <li><b>Reformasi Konstitusi Pasca Orde Baru</b>. Jurnal Humanika, UNY.<a href="https://journal.uny.ac.id/index.php/humanika/article/download/21011/11045" target="_blank" rel="noopener">journal.uny.ac.id</a></li>
+      <li><b>Proses Perubahan Mendasar Konstitusi Indonesia Pra dan Pasca Amandemen</b>. Jurnal Siyasah, IAIN Metro.<a href="https://e-journal.ejournal.metrouniv.ac.id/siyasah/article/download/3483/2278/12642" target="_blank" rel="noopener">e-journal.metrouniv.ac.id</a></li>
+      <li><b>Konstitusi: Pengertian, Fungsi, dan Jenis</b>. Gramedia Literasi.<a href="https://www.gramedia.com/literasi/?p=30419" target="_blank" rel="noopener">gramedia.com</a></li>
+      <li><b>Kajian Normatif Hubungan Antar Lembaga Negara Sebelum dan Sesudah Amandemen</b>. Jurnal Humani, USM.<a href="https://journals.usm.ac.id/index.php/humani/article/view/855" target="_blank" rel="noopener">journals.usm.ac.id</a></li>
+      <li><b>Potret Konstitusi Pasca Amandemen UUD 1945</b>, A.M. Fatwa. Katalog Perpustakaan MK.<a href="https://simpus.mkri.id/opac/detail/9251" target="_blank" rel="noopener">simpus.mkri.id</a></li>
+      <li><b>Isi Dekrit Presiden 5 Juli 1959</b>. Roboguru (sumber sekunder).<a href="https://roboguru.ruangguru.com/forum/dikrit-presiden_FRM-JF4L91VE" target="_blank" rel="noopener">roboguru.ruangguru.com</a></li>
+      <li><b>Wacana Amandemen Konstitusi Masih Terbelah</b> (2019) dan <b>MPR Gelar Seminar Evaluasi Pelaksanaan UUD 1945</b> (2018). Hukumonline.<a href="https://www.hukumonline.com/berita/baca/lt5df381bbcf7b9/wacana-amandemen-konstitusi-masih-terbelah" target="_blank" rel="noopener">hukumonline.com</a></li>
+      <li><b>MPR Nilai Amandemen UUD 1945 Keniscayaan untuk Perbaikan Konstitusi</b>. NU Online.<a href="https://www.nu.or.id/nasional/mpr-nilai-amandemen-uud-1945-keniscayaan-untuk-perbaikan-konstitusi-RBngL" target="_blank" rel="noopener">nu.or.id</a></li>
+      <li><b>Ketua MPR Bantah Isu Pemakzulan lewat Amandemen</b> (8 Juli 2026). AFU.ID.<a href="https://afu.id/hukum-kriminal/isu-pemakzulan-gibran-lewat-amandemen-uud-ketua-mpr-tidak-ada-drafnya" target="_blank" rel="noopener">afu.id</a></li>
+      <li class="todo"><b>[Buku acuan dosen: isi judul, penulis, penerbit, tahun]</b> sesuai referensi 1–3 di RPS.</li>
+    </ol>
+  </div>
+  <div class="watermark illus" data-illus="scales"></div>
+</section>
+
+<!-- =====================================================
+     SLIDE 17 — PENUTUP: SEKIAN & TERIMA KASIH (dark)
+     ===================================================== -->
+<section class="slide dark" data-chrome="none" data-title="Sekian, terima kasih">
+  <aside class="notes">Tutup presentasi dan buka sesi tanya jawab. Jawaban cadangan: perbedaan konstitusi dan UUD (slide 3), kedudukan MPR sebelum dan sesudah amandemen (slide 12). Setelah tanya jawab, lanjut ke latihan soal.</aside>
+
+  <div class="cv-top r" style="--d:0">
+    <span class="logo-badge"><img src="assets/logo-pnj.png" alt="Logo Politeknik Negeri Jakarta"></span>
+    <div><b>Politeknik Negeri Jakarta</b><span>Pendidikan Pancasila · Kelas TI 1C</span></div>
+  </div>
+
+  <div class="end-arch arch r-s" style="--d:.2">
+    <div class="bld illus" data-illus="building"></div>
+  </div>
+  <div class="end-gavel illus r" style="--d:.6" data-illus="gavel"></div>
+  <div class="end-scales illus r" style="--d:.5" data-illus="scales"></div>
+
+  <div class="end-text">
+    <p class="end-script r" style="--d:.3">Sekian</p>
+    <h2 class="end-title r" style="--d:.45">Terima Kasih</h2>
+    <div class="end-rule r" style="--d:.6"><span></span><i>✦</i><span></span></div>
+    <p class="end-q r" style="--d:.75">Apakah ada pertanyaan?</p>
+    <p class="end-group r" style="--d:.95">~ Kelompok 5 ~</p>
+  </div>
+
+  <div class="orn-plus" style="left:560px; top:930px"></div>
+  <div class="orn-plus" style="right:120px; top:160px"></div>
+  <div class="orn-ring" style="left:-90px; top:420px; width:180px; height:180px"></div>
+  <div class="orn-ring" style="right:60px; top:820px; width:120px; height:120px"></div>
+  <div class="xs" style="right:130px; top:72px">× × × ×</div>
+</section>
+
+<!-- =====================================================
+     SLIDE 18 — LATIHAN SOAL ESAI
+     ===================================================== -->
+<section class="slide paper" data-sec="4" data-title="Latihan soal esai" data-src="Materi slide 3–12 · klik soal untuk kunci singkat, klik “Slide” untuk lompat ke materinya">
+  <aside class="notes">Untuk belajar ujian. Klik soal untuk menampilkan kunci jawaban singkat di panel kanan; tombol "Slide" melompat ke materi.</aside>
+  <div class="ttl r"><span class="kick">Latihan</span><h2>Soal Esai untuk Ujian</h2></div>
+  <div class="body" style="display:grid; grid-template-columns: 1040px 1fr; gap: 40px">
+    <div class="quiz">
+      <div class="qz r" style="--d:.1"><span class="qn">1</span><p>Jelaskan perbedaan konstitusi dalam <b>arti luas</b> dan <b>arti sempit</b>, beserta contohnya di Indonesia.</p><button class="go" data-go="3">Slide 3</button>
+        <div class="ans"><ul><li><b>Arti luas:</b> seluruh aturan dasar penyelenggaraan negara, tertulis maupun tidak tertulis. Contoh tidak tertulis: konvensi pidato kenegaraan Presiden tiap 16 Agustus.</li><li><b>Arti sempit:</b> naskah tertulis = UUD. Contoh: UUD NRI 1945.</li><li>Herman Heller: konstitusi lebih luas daripada UUD.</li></ul></div></div>
+      <div class="qz r" style="--d:.2"><span class="qn">2</span><p>Sebutkan konstitusi yang pernah berlaku di Indonesia beserta <b>periode</b> dan <b>sistem pemerintahannya</b>.</p><button class="go" data-go="5">Slide 5</button>
+        <div class="ans"><ul><li><b>UUD 1945</b>: 18 Agu 1945 – 27 Des 1949, presidensial.</li><li><b>Konstitusi RIS</b>: 27 Des 1949 – 17 Agu 1950, parlementer (negara serikat).</li><li><b>UUDS 1950</b>: 17 Agu 1950 – 5 Jul 1959, parlementer.</li><li><b>UUD 1945</b> (Dekrit): 5 Jul 1959 – sekarang, presidensial.</li></ul></div></div>
+      <div class="qz r" style="--d:.3"><span class="qn">3</span><p>Mengapa UUD 1945 diamandemen? Jelaskan dengan <b>dua alasan</b> dan <b>satu contoh pasal</b>.</p><button class="go" data-go="9">Slide 9</button>
+        <div class="ans"><ul><li><b>Cegah otoritarianisme:</b> <em>executive heavy</em> diganti <em>checks and balances</em>.</li><li><b>Hapus pasal multitafsir:</b> Pasal 7 asli tidak membatasi masa jabatan; kini maksimal 2 periode.</li><li>Alasan lain: perkuat HAM (Bab XA), otonomi daerah (Pasal 18).</li></ul></div></div>
+      <div class="qz r" style="--d:.4"><span class="qn">4</span><p>Bandingkan <b>kedudukan MPR</b> sebelum dan sesudah amandemen.</p><button class="go" data-go="12">Slide 12</button>
+        <div class="ans"><ul><li><b>Sebelum:</b> lembaga tertinggi negara, melakukan sepenuhnya kedaulatan rakyat, memilih Presiden.</li><li><b>Sesudah:</b> sejajar dengan lembaga negara lain; kedaulatan dilaksanakan menurut UUD; terdiri dari DPR + DPD.</li><li>Tetap berwenang mengubah UUD, melantik, dan memberhentikan Presiden/Wapres setelah putusan MK.</li></ul></div></div>
+      <div class="qz r" style="--d:.5"><span class="qn">5</span><p>Sebutkan <b>hasil pokok tiap tahap</b> amandemen dan <b>bagian yang tidak diubah</b>.</p><button class="go" data-go="11">Slide 11</button>
+        <div class="ans"><ul><li><b>I (1999):</b> maks. 2 periode, kuasa membentuk UU ke DPR.</li><li><b>II (2000):</b> Bab XA HAM, otonomi daerah.</li><li><b>III (2001):</b> pemilu langsung, MK, KY, DPD, negara hukum.</li><li><b>IV (2002):</b> MPR = DPR + DPD, DPA dihapus, pendidikan min. 20%.</li><li><b>Tidak diubah:</b> Pembukaan UUD 1945 dan bentuk NKRI.</li></ul></div></div>
+    </div>
+    <div class="anspanel r-s" style="--d:.3">
+      <div class="illus" data-illus="scales"></div>
+      <h3>Kunci Singkat</h3>
+      <p class="hint" id="ansHint">Klik salah satu soal di kiri untuk menampilkan kunci jawaban singkatnya di sini. Gunakan untuk mengecek hafalan sebelum ujian.</p>
+      <div class="abody" id="ansBody"></div>
+      <p class="qref" id="ansRef"></p>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<!-- ===========================================
+     DECK UI (di luar stage)
+     =========================================== -->
+<nav class="deck-controls" id="controls" aria-label="Navigasi slide">
+  <button id="btnPrev" title="Sebelumnya (←)" aria-label="Slide sebelumnya"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <span class="cnt" id="counter">1 / 18</span>
+  <button id="btnNext" title="Berikutnya (→)" aria-label="Slide berikutnya"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  <span class="sep"></span>
+  <button id="btnGrid" title="Daftar slide (G)" aria-label="Daftar slide"><svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></button>
+  <button id="btnNotes" title="Catatan pembicara (N)" aria-label="Catatan pembicara"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM9 9h6M9 13h6M9 17h3"/></svg></button>
+  <button id="btnFull" title="Layar penuh (F)" aria-label="Layar penuh"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+  <button id="btnPrint" title="Cetak / simpan PDF (P)" aria-label="Cetak"><svg viewBox="0 0 24 24"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3M7 14h10v7H7z"/></svg></button>
+</nav>
+
+<div class="overview" id="overview" role="dialog" aria-label="Daftar slide">
+  <h2><span>Daftar</span>Slide</h2>
+  <div class="ov-grid" id="ovGrid"></div>
+</div>
+
+<div class="notes-panel" id="notesPanel"><h4>Catatan pembicara</h4><div id="notesText"></div></div>
+
+<div class="edit-hotzone" id="editHotzone"></div>
+<button class="edit-toggle" id="editToggle" title="Mode edit (E)">✏️</button>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===========================================
+   SLIDE PRESENTATION CONTROLLER
+   - skala stage 1920×1080, navigasi, langkah per baris,
+   - chrome otomatis (strip, header, footer, ornamen),
+   - overview (G), catatan (N), layar penuh (F), cetak (P)
+   =========================================== */
+const SECTIONS = { 1: '01 Konstitusi', 2: '02 Dinamika', 3: '03 Amandemen' };
+
+class SlidePresentation {
+    constructor() {
+        this.stage = document.getElementById('deckStage');
+        this.slides = Array.from(document.querySelectorAll('.slide'));
+        this.total = this.slides.length;
+        this.current = -1;
+        this.expandIllustrations();
+        this.buildChrome();
+        this.setupStageScale();
+        this.setupKeyboardNav();
+        this.setupTouchNav();
+        this.setupWheelNav();
+        this.setupControls();
+        this.setupOverview();
+        this.setupQuiz();
+        const fromHash = parseInt(location.hash.replace('#', ''), 10);
+        this.go(Number.isFinite(fromHash) ? fromHash - 1 : 0);
+    }
+
+    /* Klon ilustrasi SVG dari <template> ke setiap [data-illus] */
+    expandIllustrations() {
+        document.querySelectorAll('[data-illus]').forEach(el => {
+            if (el.dataset.illusDone) return;
+            const tpl = document.getElementById('t-' + el.dataset.illus);
+            if (!tpl) return;
+            el.appendChild(tpl.content.cloneNode(true));
+            el.classList.add('illus');
+            el.dataset.illusDone = '1';
+            if (el.dataset.illus === 'gavel' && !el.classList.contains('gavel-step')) el.classList.add('gavel-auto');
+        });
+    }
+
+    /* Strip emas + header + footer + ornamen untuk slide isi */
+    buildChrome() {
+        this.slides.forEach((s, i) => {
+            if (s.dataset.chrome === 'none') return;
+            const sec = parseInt(s.dataset.sec || '0', 10);
+            const pills = Object.entries(SECTIONS).map(([k, v]) =>
+                `<span class="pill${+k === sec ? ' on' : ''}">${v}</span>`).join('');
+            const pg = String(i + 1).padStart(2, '0');
+            const html = `
+                <div class="band" data-gen><i style="width:${((i + 1) / this.total) * 100}%"></i></div>
+                <header class="hdr" data-gen>
+                    <div class="hdr-l"><img src="assets/logo-pnj.png" alt="Logo PNJ"><span>Kelas : TI 1C · Kelompok 5</span></div>
+                    <nav class="pills">${pills}</nav>
+                    <div class="pg">${pg}<i>/ ${this.total}</i></div>
+                </header>
+                <footer class="foot" data-gen>
+                    <span class="src"><b>sumber :</b> ${s.dataset.src || ''}</span>
+                    <span>UUD 1945 · Pendidikan Pancasila</span>
+                </footer>
+                <div class="orn-ring" data-gen style="left:-92px; top:330px; width:170px; height:170px"></div>
+                <div class="orn-plus" data-gen style="right:44px; top:150px"></div>`;
+            s.insertAdjacentHTML('afterbegin', html);
+        });
+    }
+
+    setupStageScale() {
+        const scale = () => {
+            const f = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+            const x = (window.innerWidth - 1920 * f) / 2;
+            const y = (window.innerHeight - 1080 * f) / 2;
+            this.stage.style.transform = `translate(${x}px, ${y}px) scale(${f})`;
+        };
+        scale();
+        window.addEventListener('resize', scale);
+    }
+
+    isTyping(e) { return e.target.isContentEditable || /INPUT|TEXTAREA/.test(e.target.tagName); }
+
+    setupKeyboardNav() {
+        document.addEventListener('keydown', e => {
+            if (this.isTyping(e)) return;
+            if (e.ctrlKey || e.metaKey || e.altKey) return;
+            const k = e.key;
+            if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].includes(k)) { e.preventDefault(); this.next(); }
+            else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(k)) { e.preventDefault(); this.prev(); }
+            else if (k === 'Home') this.go(0);
+            else if (k === 'End') this.go(this.total - 1);
+            else if (k === 'g' || k === 'G') this.toggleOverview();
+            else if (k === 'n' || k === 'N') this.toggleNotes();
+            else if (k === 'f' || k === 'F') this.toggleFullscreen();
+            else if (k === 'p' || k === 'P') window.print();
+            else if (k === 'Escape') { this.toggleOverview(false); }
+        });
+    }
+
+    setupTouchNav() {
+        let sx = 0, sy = 0;
+        document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+        document.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) dx < 0 ? this.next() : this.prev();
+        }, { passive: true });
+    }
+
+    setupWheelNav() {
+        let lock = false;
+        window.addEventListener('wheel', e => {
+            if (document.getElementById('overview').classList.contains('open')) return;
+            if (lock || Math.abs(e.deltaY) < 30) return;
+            lock = true; setTimeout(() => lock = false, 800);
+            e.deltaY > 0 ? this.next() : this.prev();
+        }, { passive: true });
+    }
+
+    setupControls() {
+        const c = document.getElementById('controls');
+        document.getElementById('btnPrev').onclick = () => this.prev();
+        document.getElementById('btnNext').onclick = () => this.next();
+        document.getElementById('btnGrid').onclick = () => this.toggleOverview();
+        document.getElementById('btnNotes').onclick = () => this.toggleNotes();
+        document.getElementById('btnFull').onclick = () => this.toggleFullscreen();
+        document.getElementById('btnPrint').onclick = () => window.print();
+        let t;
+        const wake = () => { c.classList.remove('idle'); clearTimeout(t); t = setTimeout(() => c.classList.add('idle'), 2600); };
+        document.addEventListener('mousemove', wake); wake();
+    }
+
+    setupOverview() {
+        const grid = document.getElementById('ovGrid');
+        grid.innerHTML = this.slides.map((s, i) =>
+            `<button class="ov-item" data-i="${i}"><i>${String(i + 1).padStart(2, '0')}</i>${s.dataset.title || ''}</button>`).join('');
+        grid.addEventListener('click', e => {
+            const b = e.target.closest('.ov-item'); if (!b) return;
+            this.go(+b.dataset.i); this.toggleOverview(false);
+        });
+        document.getElementById('overview').addEventListener('click', e => { if (e.target.id === 'overview') this.toggleOverview(false); });
+    }
+
+    /* Slide 17: klik soal → kunci jawaban; tombol "Slide X" → lompat */
+    setupQuiz() {
+        const body = document.getElementById('ansBody'), hint = document.getElementById('ansHint'), ref = document.getElementById('ansRef');
+        document.querySelectorAll('.qz').forEach(q => {
+            q.addEventListener('click', e => {
+                if (document.body.classList.contains('editing')) return;
+                const go = e.target.closest('.go');
+                if (go) { this.go(+go.dataset.go - 1); return; }
+                document.querySelectorAll('.qz').forEach(x => x.classList.toggle('sel', x === q));
+                body.innerHTML = q.querySelector('.ans').innerHTML;
+                hint.style.display = 'none';
+                ref.textContent = 'Soal ' + q.querySelector('.qn').textContent + ' · materi di slide ' + q.querySelector('.go').dataset.go;
+            });
+        });
+    }
+
+    toggleOverview(force) {
+        const o = document.getElementById('overview');
+        const open = force === undefined ? !o.classList.contains('open') : force;
+        o.classList.toggle('open', open);
+        o.querySelectorAll('.ov-item').forEach((b, i) => b.classList.toggle('cur', i === this.current));
+    }
+    toggleNotes() { document.getElementById('notesPanel').classList.toggle('open'); }
+    toggleFullscreen() {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+        else document.exitFullscreen?.();
+    }
+
+    /* Langkah: → memunculkan baris berikutnya dulu sebelum pindah slide */
+    next() {
+        const s = this.slides[this.current];
+        const pending = s.querySelector('.step:not(.on)');
+        if (pending) { pending.classList.add('on'); this.checkSteps(s); return; }
+        this.go(this.current + 1);
+    }
+    prev() { this.go(this.current - 1, true); }
+    checkSteps(s) {
+        const steps = s.querySelectorAll('.step');
+        s.classList.toggle('steps-done', steps.length > 0 && !s.querySelector('.step:not(.on)'));
+    }
+
+    go(n, backwards = false) {
+        n = Math.max(0, Math.min(n, this.total - 1));
+        if (n === this.current) return;
+        const target = this.slides[n];
+        target.querySelectorAll('.step').forEach(st => st.classList.toggle('on', backwards));
+        this.checkSteps(target);
+        this.slides.forEach((s, i) => {
+            s.classList.toggle('active', i === n);
+            s.classList.toggle('visible', i === n);
+        });
+        this.current = n;
+        document.getElementById('counter').textContent = `${n + 1} / ${this.total}`;
+        const notes = target.querySelector('.notes');
+        document.getElementById('notesText').textContent = notes ? notes.textContent : '';
+        history.replaceState(null, '', '#' + (n + 1));
+    }
+}
+
+/* ===========================================
+   INLINE EDITOR
+   E = mode edit, perubahan tersimpan otomatis di browser,
+   Ctrl+S = unduh file HTML yang sudah diedit.
+   =========================================== */
+class InlineEditor {
+    constructor() {
+        this.key = 'uud1945-k5-edits-v2';
+        this.isActive = false;
+        this.targets = Array.from(document.querySelectorAll(
+            '.deck-stage h1, .deck-stage h2, .deck-stage h3, .deck-stage h4, .deck-stage p, .deck-stage li, .deck-stage td, .deck-stage th, .deck-stage .kick, .deck-stage .cv-names span, .deck-stage .cv-caps span, .deck-stage .hdr-l span, .deck-stage .who span, .deck-stage .box, .deck-stage .chips span, .deck-stage .views div'
+        )).filter(el => !el.closest('svg') && !el.parentElement.closest('li, p, td, th, h1, h2, h3, h4'));
+        this.restore();
+        this.bindUI();
+    }
+    restore() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(this.key) || '{}');
+            Object.entries(saved).forEach(([i, html]) => { if (this.targets[i]) this.targets[i].innerHTML = html; });
+        } catch (e) { /* storage tidak tersedia: abaikan */ }
+    }
+    save() {
+        try {
+            const data = {};
+            this.targets.forEach((el, i) => { if (el.dataset.dirty) data[i] = el.innerHTML; });
+            localStorage.setItem(this.key, JSON.stringify(data));
+        } catch (e) { /* abaikan */ }
+    }
+    toggleEditMode() {
+        this.isActive = !this.isActive;
+        document.body.classList.toggle('editing', this.isActive);
+        document.getElementById('editToggle').classList.toggle('active', this.isActive);
+        this.targets.forEach(el => {
+            if (this.isActive) {
+                el.setAttribute('contenteditable', 'true');
+                el.oninput = () => { el.dataset.dirty = '1'; this.save(); };
+            } else el.removeAttribute('contenteditable');
+        });
+        toast(this.isActive ? 'Mode edit aktif · klik teks untuk mengubah · Ctrl+S untuk unduh' : 'Mode edit nonaktif · perubahan tersimpan di browser');
+    }
+    download() {
+        const clone = document.documentElement.cloneNode(true);
+        clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+        clone.querySelectorAll('[data-dirty]').forEach(el => el.removeAttribute('data-dirty'));
+        clone.querySelectorAll('[data-gen]').forEach(el => el.remove());
+        clone.querySelectorAll('[data-illus-done]').forEach(el => {
+            el.removeAttribute('data-illus-done');
+            el.querySelectorAll(':scope > svg').forEach(svg => svg.remove());
+        });
+        clone.querySelectorAll('.slide').forEach(s => s.classList.remove('active', 'visible', 'steps-done'));
+        clone.querySelectorAll('.step.on').forEach(s => s.classList.remove('on'));
+        clone.querySelector('body').classList.remove('editing');
+        const blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'UUD-1945-Konstitusi-yang-Terus-Hidup.html';
+        a.click();
+        toast('File HTML hasil edit diunduh');
+    }
+    bindUI() {
+        const btn = document.getElementById('editToggle'), zone = document.getElementById('editHotzone');
+        let hide = null;
+        btn.addEventListener('click', () => this.toggleEditMode());
+        zone.addEventListener('click', () => this.toggleEditMode());
+        zone.addEventListener('mouseenter', () => { clearTimeout(hide); btn.classList.add('show'); });
+        zone.addEventListener('mouseleave', () => { hide = setTimeout(() => { if (!this.isActive) btn.classList.remove('show'); }, 400); });
+        btn.addEventListener('mouseenter', () => clearTimeout(hide));
+        btn.addEventListener('mouseleave', () => { hide = setTimeout(() => { if (!this.isActive) btn.classList.remove('show'); }, 400); });
+        document.addEventListener('keydown', e => {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); this.download(); return; }
+            if ((e.key === 'e' || e.key === 'E') && !e.target.isContentEditable && !e.ctrlKey && !e.metaKey) this.toggleEditMode();
+            if (e.key === 'Escape' && this.isActive) this.toggleEditMode();
+        });
+    }
+}
+
+function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+/* Cetak: tampilkan semua langkah */
+window.addEventListener('beforeprint', () => document.querySelectorAll('.step').forEach(s => s.classList.add('on')));
+
+const deck = new SlidePresentation();
+const editor = new InlineEditor();
+</script>
+</body>
+</html>
