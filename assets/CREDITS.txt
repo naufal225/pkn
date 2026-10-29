@@ -1,0 +1,25 @@
+Sumber gambar dalam presentasi "UUD 1945: Konstitusi yang Terus Hidup"
+=====================================================================
+
+ppki-1945.jpg
+  Sidang Panitia Persiapan Kemerdekaan Indonesia (PPKI), 18 Agustus 1945
+  https://commons.wikimedia.org/wiki/File:PPKI.jpg  (Public domain)
+
+kmb-1949.jpg
+  Konferensi Meja Bundar (Round Table Conference), Den Haag, 1949
+  https://commons.wikimedia.org/wiki/File:Round_Table_Conference.jpg  (Public domain)
+
+dekrit-1959.jpg
+  Presiden Soekarno membacakan Dekrit 5 Juli 1959 di Istana Merdeka
+  https://commons.wikimedia.org/wiki/File:1959_Sukarno%27s_Presidential_Decree.jpg  (Public domain)
+
+gedung-mpr.jpg
+  Kompleks Gedung MPR/DPR/DPD RI, Senayan, Jakarta (foto: Davidelit)
+  https://commons.wikimedia.org/wiki/File:MPRDPRDPDBuilding.jpg  (Public domain)
+
+logo-pnj.png
+  Logo Politeknik Negeri Jakarta (latar putih dibuat transparan)
+  https://id.wikipedia.org/wiki/Berkas:Logo_Politeknik_Negeri_Jakarta.jpg  (logo resmi, fair use, untuk keperluan akademik)
+
+Ilustrasi timbangan, palu hakim, gedung berpilar, gulungan naskah, gembok, peta, dan ikon
+dibuat sebagai SVG langsung di dalam file HTML.
