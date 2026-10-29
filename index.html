@@ -698,16 +698,11 @@ em { font-style: italic; }
 /* ===========================================
    SLIDE 15: KESIMPULAN (dark)
    =========================================== */
-.concl { display: flex; flex-direction: column; gap: 44px; width: 1100px; }
+.concl { display: flex; flex-direction: column; justify-content: center; gap: 64px; width: 1100px; height: 100%; padding-bottom: 30px; }
 .concl .it { display: flex; gap: 28px; align-items: center; }
 .concl .n { flex: none; font: 900 76px/1 var(--f-display); color: var(--gold); width: 64px; text-align: center; }
 .concl .ic-badge { width: 70px; height: 70px; padding: 16px; background: rgba(255, 255, 255, .08); }
-.concl p { font-size: 31px; line-height: 1.42; color: rgba(255, 255, 255, .92); }
-.thanks { position: absolute; left: 120px; right: 120px; top: 868px; padding-top: 22px; border-top: 2px solid var(--gold); display: flex; justify-content: space-between; align-items: center; z-index: 2; }
-.thanks h3 { font: 700 italic 58px/1 var(--f-display); color: #fff; }
-.thanks h3 span { color: var(--gold-2); }
-.thanks .who { display: flex; align-items: center; gap: 16px; font: 600 21px/1.35 var(--f-ui); color: rgba(255, 255, 255, .75); text-align: right; }
-.thanks .who img { width: 60px; height: 60px; background: #fff; border-radius: 50%; padding: 5px; }
+.concl p { font-size: 33px; line-height: 1.42; color: rgba(255, 255, 255, .92); }
 
 /* ===========================================
    SLIDE 17: SEKIAN & TERIMA KASIH (dark)
@@ -1019,10 +1014,10 @@ body.editing [contenteditable="true"]:focus { outline: 2px solid var(--brick); }
   </div>
 
   <div class="cv-names r" style="--d:.8">
-    <span>Nama Anggota 1<small>NIM</small></span>
-    <span>Nama Anggota 2<small>NIM</small></span>
-    <span>Nama Anggota 3<small>NIM</small></span>
-    <span>Nama Anggota 4<small>NIM</small></span>
+    <span>Naufal Ma'ruf Ashrori<small>2607411015</small></span>
+    <span>Ahmad Fauzan Badrus Salam<small>2607411017</small></span>
+    <span>Bimo Maheswara<small>2607411076</small></span>
+    <span>Neilo Febrian Utomo<small>2607411047</small></span>
   </div>
 
   <div class="orn-plus" style="left:960px; top:150px"></div>
@@ -1519,7 +1514,7 @@ body.editing [contenteditable="true"]:focus { outline: 2px solid var(--brick); }
      SLIDE 15 — KESIMPULAN (dark)
      ===================================================== -->
 <section class="slide dark" data-sec="4" data-title="Kesimpulan" data-src="Ringkasan materi Kelompok 5">
-  <aside class="notes">Ulang pertanyaan pemancing dari slide 1 dan jawab: empat kali, 1999–2002, dengan alasan mencegah kekuasaan terpusat. Siapkan dua jawaban cadangan untuk tanya jawab: perbedaan konstitusi dan UUD, dan kedudukan MPR sebelum dan sesudah.</aside>
+  <aside class="notes">Ulang pertanyaan pemancing dari slide 1 dan jawab: empat kali, 1999–2002, dengan alasan mencegah kekuasaan terpusat. Lalu lanjut ke slide 17 untuk ucapan terima kasih dan sesi tanya jawab.</aside>
   <div class="ttl r"><span class="kick">Kesimpulan</span><h2>Tiga Hal untuk Dibawa Pulang</h2></div>
   <div class="body">
     <div class="concl">
@@ -1530,10 +1525,6 @@ body.editing [contenteditable="true"]:focus { outline: 2px solid var(--brick); }
   </div>
   <div class="illus r-s" style="--d:.3; position:absolute; right:150px; top:250px; width:440px; z-index:1" data-illus="scales"></div>
   <div class="orn-ring" style="right:110px; top:220px; width:520px; height:520px; border-color:rgba(226,197,97,.25)"></div>
-  <div class="thanks r" style="--d:.9">
-    <h3>Terima kasih. <span>Ada pertanyaan?</span></h3>
-    <div class="who"><span>Kelompok 5 · TI 1C<br>Politeknik Negeri Jakarta</span><img src="assets/logo-pnj.png" alt="Logo PNJ"></div>
-  </div>
 </section>
 
 <!-- =====================================================
@@ -1857,26 +1848,48 @@ class SlidePresentation {
    =========================================== */
 class InlineEditor {
     constructor() {
-        this.key = 'uud1945-k5-edits-v2';
+        this.key = 'uud1945-k5-edits-v3';
+        this.legacyKey = 'uud1945-k5-edits-v2';   // format lama: indeks global
         this.isActive = false;
         this.targets = Array.from(document.querySelectorAll(
             '.deck-stage h1, .deck-stage h2, .deck-stage h3, .deck-stage h4, .deck-stage p, .deck-stage li, .deck-stage td, .deck-stage th, .deck-stage .kick, .deck-stage .cv-names span, .deck-stage .cv-caps span, .deck-stage .hdr-l span, .deck-stage .who span, .deck-stage .box, .deck-stage .chips span, .deck-stage .views div'
         )).filter(el => !el.closest('svg') && !el.parentElement.closest('li, p, td, th, h1, h2, h3, h4'));
+        // ID per slide ("slide-urutan"), supaya menambah slide tidak menggeser editan slide lain
+        const slides = Array.from(document.querySelectorAll('.slide'));
+        const perSlide = {};
+        this.targets.forEach(el => {
+            const si = slides.indexOf(el.closest('.slide'));
+            perSlide[si] = (perSlide[si] || 0) + 1;
+            el.dataset.editId = `${si}-${perSlide[si] - 1}`;
+        });
+        this.data = this.load();
         this.restore();
         this.bindUI();
     }
-    restore() {
+    /* Semua editan disimpan dalam satu peta {editId: html} yang selalu digabung,
+       jadi mengedit satu slide tidak menghapus editan slide lain. */
+    load() {
         try {
-            const saved = JSON.parse(localStorage.getItem(this.key) || '{}');
-            Object.entries(saved).forEach(([i, html]) => { if (this.targets[i]) this.targets[i].innerHTML = html; });
-        } catch (e) { /* storage tidak tersedia: abaikan */ }
+            const saved = JSON.parse(localStorage.getItem(this.key) || 'null');
+            if (saved) return saved;
+            const migrated = {};
+            const legacy = JSON.parse(localStorage.getItem(this.legacyKey) || '{}');
+            Object.entries(legacy).forEach(([i, html]) => {
+                const el = this.targets[i];
+                if (el) migrated[el.dataset.editId] = html;
+            });
+            return migrated;
+        } catch (e) { return {}; /* storage tidak tersedia: abaikan */ }
     }
-    save() {
-        try {
-            const data = {};
-            this.targets.forEach((el, i) => { if (el.dataset.dirty) data[i] = el.innerHTML; });
-            localStorage.setItem(this.key, JSON.stringify(data));
-        } catch (e) { /* abaikan */ }
+    restore() {
+        this.targets.forEach(el => {
+            const html = this.data[el.dataset.editId];
+            if (html !== undefined) el.innerHTML = html;
+        });
+    }
+    save(el) {
+        this.data[el.dataset.editId] = el.innerHTML;
+        try { localStorage.setItem(this.key, JSON.stringify(this.data)); } catch (e) { /* abaikan */ }
     }
     toggleEditMode() {
         this.isActive = !this.isActive;
@@ -1885,7 +1898,7 @@ class InlineEditor {
         this.targets.forEach(el => {
             if (this.isActive) {
                 el.setAttribute('contenteditable', 'true');
-                el.oninput = () => { el.dataset.dirty = '1'; this.save(); };
+                el.oninput = () => this.save(el);
             } else el.removeAttribute('contenteditable');
         });
         toast(this.isActive ? 'Mode edit aktif · klik teks untuk mengubah · Ctrl+S untuk unduh' : 'Mode edit nonaktif · perubahan tersimpan di browser');
@@ -1893,7 +1906,7 @@ class InlineEditor {
     download() {
         const clone = document.documentElement.cloneNode(true);
         clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
-        clone.querySelectorAll('[data-dirty]').forEach(el => el.removeAttribute('data-dirty'));
+        clone.querySelectorAll('[data-edit-id]').forEach(el => el.removeAttribute('data-edit-id'));
         clone.querySelectorAll('[data-gen]').forEach(el => el.remove());
         clone.querySelectorAll('[data-illus-done]').forEach(el => {
             el.removeAttribute('data-illus-done');
